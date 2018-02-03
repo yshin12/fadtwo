@@ -1,5 +1,6 @@
-# fadtwo
-FActor-Driven TWO-regime regressions (fadtwo)
+# fadtwo (FActor-Driven TWO-regime regressions)
+
+Last update: 2018-02-03
 
 There are two codes:
 
