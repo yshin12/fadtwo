@@ -60,7 +60,7 @@ fadtwo <- function(y,x,f, method="joint", L.bt=-1e06, U.bt=1e06, L.dt=-1e06, U.d
     # Note that dt.tilde = dt.hat - L.dt.  
     dt.hat = dt.tilde + L.dt  
     gm.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f)]
-    objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=1e-6)
+    objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=eta)
     cat('-----------------------------------------', '\n')
     cat('Results', '\n')
     cat('-----------------------------------------', '\n')
@@ -75,11 +75,9 @@ fadtwo <- function(y,x,f, method="joint", L.bt=-1e06, U.bt=1e06, L.dt=-1e06, U.d
     return(list(bt.hat=bt.hat, dt.hat=dt.hat, gm.hat=gm.hat, objval=objval))
   }
   else if(method == "iter"){
-    cat('test: iterative','\n')
-    
     # Grid Search for gm
     n.grid=nrow(grid)
-    step1.out = step1_grid(y=y,x=x,f=f,grid=grid)
+    step1.out = step1_grid(y=y,x=x,f=f,grid=grid, eta=eta)
     ap.hat.step1 = step1.out$ap.hat
     gm.hat.step1 = step1.out$gm.hat
     cat('-----------------------------------------', '\n')
@@ -103,10 +101,10 @@ fadtwo <- function(y,x,f, method="joint", L.bt=-1e06, U.bt=1e06, L.dt=-1e06, U.d
     d.hat = step2_1.out$d.t
     
     # Update ap.hat
-    step2_2.out = estimate_bt_dt(y=y, x=x, f=f, gm=gm.hat)
+    step2_2.out = estimate_bt_dt(y=y, x=x, f=f, gm=gm.hat, eta=eta)
     bt.hat = step2_2.out$bt.hat
     dt.hat = step2_2.out$dt.hat
-    objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=1e-6)
+    objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=eta)
     cat('-----------------------------------------', '\n')
     cat('Results', '\n')
     cat('-----------------------------------------', '\n')
@@ -424,13 +422,13 @@ estimate <- function (y, x, f, Q.obj, L.obj, objcon, A.const, b.const, L.bt, L.g
 #
 # This function estimates gm by the grid search method
 #
-step1_grid <- function(y, x, f, grid){
+step1_grid <- function(y, x, f, grid, eta=1e-6){
   n.grid = nrow(grid)
   dim.x = ncol(x)
   result = matrix(NA, nrow=n.grid, ncol=(1+2*dim.x))   # Collect ap.hat and the objective function value
   for (i in (1:n.grid)){
     f.index = as.numeric(f %*% t(grid[i,]))
-    x.reg = cbind(x, x*(f.index>0))
+    x.reg = cbind(x, x*(f.index>eta*0.99))
     m = lm(y~x.reg-1)
     result[i,] = c(sum(m$resid^2),coef(m))
     if (is.na(sum(coef(m)))) {
@@ -449,11 +447,11 @@ step1_grid <- function(y, x, f, grid){
 #
 # This function estimate bt and dt by OLS given an estimate for gm
 #
-estimate_bt_dt <- function(y, x, f, gm){
+estimate_bt_dt <- function(y, x, f, gm, eta=1e-6){
   T = length(y)                             # Sample size
   dim.bt = dim.dt = ncol(x)                 # The number of columns in x, size of Beta and Delta
   
-  indicator = (f %*% gm > 0)                # Construct the indicator function with gm given
+  indicator = (f %*% gm >= eta*0.99)                # Construct the indicator function with gm given
   x.ind = x * matrix(indicator, T, dim.bt)  # Construct regressors for Delta
   reg = cbind(x, x.ind)                     # Construct the whole regressors for Beta and Delta
   m1 = lm(y~-1+reg)                         # OLS and save the model as m1
@@ -534,7 +532,7 @@ estimate_gm <- function(y, x, f, bt, dt, A, b, M,  tau1, tau2, params, eta, ...)
 #
 get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
   n.obs=length(y)
-  index = f%*%gm >= eta
+  index = f%*%gm >= eta*0.99
   y.hat = x%*%bt + (x%*%dt) * index
   u.hat = y - y.hat
   objval = (t(u.hat) %*% u.hat)/n.obs
