@@ -539,3 +539,57 @@ get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
   
   return(objval)
 }
+
+
+# Code for the LLSS-factor project 
+#
+# To estimate Impurse-response functions using the local projection method in Jorda (2005)
+#
+#   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + + eps for h=0,1,2,...,
+#
+#   CALL: 
+#         c_estimate_gm.R 
+#         c_estimate_bt_dt.R 
+#         c_get_m.R
+#         c_l2norm.R
+#
+#   INPUT:
+#         y: T x 1 
+#         x: T x dim(x), it must include the constant term
+#         s: T x dim(s), shock variables
+#         h: scalar, time horinzeon of the impulse-reponse function
+#         print: logical, print the regression results for all h, defaul=FALSE
+#   
+#   OUTPUT:
+#         irf: time.horizon x dim(s)
+#
+# 
+#		  Date			    Programmer			Description of change
+#	  =========			  ==========			=====================
+#	  2017-09-15		    Y. Shin				  Original code        
+#   2017-09-28                     Return was deleted by mistake. Rewrote it.
+#   2017-10-06                     Dropb the line to print the variable names
+#
+
+irf_local_projection <- function (y, x, s, h, print=F) {
+  
+  T = nrow(as.matrix(x))
+  reg = cbind(s,x)
+  #print(colnames(reg))
+  y = as.matrix(y)
+  irf = matrix(NA,h+1,ncol(s))
+  
+  for (i.h in (0:h)){
+    sub.dep.y = y[((i.h+1):T),]
+    sub.reg = reg[(1:(T-i.h)),]
+    m = lm(sub.dep.y~sub.reg-1)
+    if (print){
+      cat('\n','--------------','\n','h=',i.h,'\n')
+    }
+    irf[i.h+1,] = coef(m)[paste('sub.reg',colnames(s),sep='')]
+  }
+  
+  return(list(irf=irf))
+}
+
+
