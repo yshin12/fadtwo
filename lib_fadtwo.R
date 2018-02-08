@@ -541,9 +541,7 @@ get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
 }
 
 
-# Code for the LLSS-factor project 
-#
-# To estimate Impurse-response functions using the local projection method in Jorda (2005)
+# This function estimates an impurse-response functions using the local projection method in Jorda (2005)
 #
 #   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + + eps for h=0,1,2,...,
 #
@@ -564,12 +562,6 @@ get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
 #         irf: time.horizon x dim(s)
 #
 # 
-#		  Date			    Programmer			Description of change
-#	  =========			  ==========			=====================
-#	  2017-09-15		    Y. Shin				  Original code        
-#   2017-09-28                     Return was deleted by mistake. Rewrote it.
-#   2017-10-06                     Dropb the line to print the variable names
-#
 
 irf_local_projection <- function (y, x, s, h, print=F) {
   
