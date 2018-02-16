@@ -93,7 +93,7 @@ for (c.rep in (1:re)){
   bt.all[c.rep] = ex_out$bt.hat
   dt.all[c.rep] = ex_out$dt.hat
   gm.all[c.rep,] = (ex_out$gm.hat) * (ex_out$gm.hat > eta )
-  correct.select.all[c.rep] =  identical( (gm.all[c.rep,] != 0 ) == (gm.0 !=0) )
+  correct.select.all[c.rep] =  identical( (gm.all[c.rep,] != 0 ), (gm.0 !=0) )
 }
 
 save.image(file=paste('sim-sel-d.f-',d.f,'-p-',p,'.RData',sep=''))
