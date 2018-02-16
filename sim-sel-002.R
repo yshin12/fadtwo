@@ -10,7 +10,7 @@ rm(list=ls())
 time.start = proc.time()[3]
 
 options(digits=7)
-source('lib_fadtwo.R')
+source('lib_fadtwo_selection.R')
 #sink('example_fadtwo.out')
 dgp1 <- function(n.obs,d.x,d.f){
   bt = rep(1,d.x)
