@@ -6,7 +6,7 @@
 # 
 
 
-fadtwo <- function(y,x,f, method="joint", L.bt=-1e06, U.bt=1e06, L.dt=-1e06, U.dt=1e06, L.gm=-1e06, U.gm=1e06, tau1=0.05, tau2=0.95, 
+fadtwo <- function(y,x,f, method="joint", L.bt=-1e06, U.bt=1e06, L.dt=-1e06, U.dt=1e06, L.gm=-1e06, U.gm=1e06, tau1, tau2, 
                    eta=1e-6, params=list(OutputFlag=1, FeasibilityTol=1e-9),
                    grid=NULL) {
 
@@ -505,7 +505,7 @@ estimate_gm <- function(y, x, f, bt, dt, A, b, M,  tau1, tau2, params, eta, ...)
   Constraint.4 = c(-A10.1, rep(0,dim.gm))
   
   # const #5: Right inequality of sum d_t
-  Constraint.5 = c(-A10.1, rep(0,dim.gm))
+  Constraint.5 = c(A10.1, rep(0,dim.gm))
   
   
   
