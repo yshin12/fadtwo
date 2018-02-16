@@ -96,7 +96,7 @@ for (c.rep in (1:re)){
   correct.select.all[c.rep] =  identical( (gm.all[c.rep,] != 0 ), (gm.0 !=0) )
 }
 
-save.image(file=paste('sim-sel-d.f-',d.f,'-p-',p,'.RData',sep=''))
+
 
 time.end=proc.time()[3]
 cpu.time = time.end-time.start
@@ -107,3 +107,5 @@ cat('Prop. correct model selection = ', prop.correct.select,'\n')
 cat('--------------------------------------------', '\n')
 cat('average time = ', cpu.time, '\n')
 cat('--------------------------------------------', '\n')
+
+save.image(file=paste('sim-sel-d.f-',d.f,'-p-',p,'.RData',sep=''))

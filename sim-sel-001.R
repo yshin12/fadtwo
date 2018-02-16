@@ -89,14 +89,14 @@ for (c.rep in (1:re)){
                 L.p=L.p, U.p=U.p, tau1=tau1,tau2=tau2, eta=eta, params=params,ld=ld)
   
   print(ex_out)
-  ?
+  
   bt.all[c.rep] = ex_out$bt.hat
   dt.all[c.rep] = ex_out$dt.hat
   gm.all[c.rep,] = (ex_out$gm.hat) * (ex_out$gm.hat > eta )
   correct.select.all[c.rep] =  identical( (gm.all[c.rep,] != 0 ), (gm.0 !=0) )
 }
 
-save.image(file=paste('sim-sel-d.f-',d.f,'-p-',p,'.RData',sep=''))
+
 
 time.end=proc.time()[3]
 cpu.time = time.end-time.start
@@ -107,3 +107,5 @@ cat('Prop. correct model selection = ', prop.correct.select,'\n')
 cat('--------------------------------------------', '\n')
 cat('average time = ', cpu.time, '\n')
 cat('--------------------------------------------', '\n')
+
+save.image(file=paste('sim-sel-d.f-',d.f,'-p-',p,'.RData',sep=''))
