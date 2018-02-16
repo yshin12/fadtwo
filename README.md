@@ -12,4 +12,6 @@ There are two codes:
   
   (4) sim-002.R
   
+  (5) rz_selection.R - model selection exercise with Ramey and Zubeira data
+  
   
