@@ -65,8 +65,13 @@ correct.select.all = rep(NA,re)
 
 # eta: the size of effective zero
 eta = 1e-6
+
+# Gurobi options: 
+params <- list(OutputFlag=1, FeasibilityTol=1e-9, MIPGap=1e-4, TimeLimit=Inf)    
+# OutputFlag: print out outputs
 # FeasibilityTol: error allowance for the inequality constraints
-params <- list(OutputFlag=1, FeasibilityTol=1e-9)      # Parameters for Gurobi
+# MIPGap: Stop if the gap is smaller than this bound. Default is 1e-4
+# TimeLimit: Stop if the computation time reaches this bound. Default is infinity
 
 
 for (c.rep in (1:re)){
