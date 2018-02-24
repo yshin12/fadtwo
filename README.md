@@ -13,4 +13,10 @@ There are two codes:
   
   (4) example_selection_iter.R - an exmpale code for model selection using the iterative algorithm
   
+  (5) dat_rz.dat - a data file for Ramey and Zubeira (2017)
   
+  (6) rz_fadtwo.R - for estimating the RZ model without model selection
+  
+  (7) rz_selection_joint.R - for estimating the RZ model with model selection; joint method
+  
+  (8) rz_selection_iter.R - for estimating the RZ model with model selection; iterative method
