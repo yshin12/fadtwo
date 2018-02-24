@@ -15,7 +15,7 @@
 
 fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=NULL, L.gm=NULL, U.gm=NULL, tau1, tau2, 
                    eta=1e-6, params=list(OutputFlag=1, FeasibilityTol=1e-9),
-                   grid=NULL) {
+                   grid=NULL, max.iter=1) {
   
   # Model: y = x'bt + x'dt * 1{f'gm > 0} + eps
   #
@@ -102,7 +102,10 @@ fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=
     } 
     
     # Estimate gm.hat by MIO and Update ap.hat
-    step2_1.out = estimate_gm(y=y, x=x, f=f, bt=ap.hat.step1[c(1:d.x)], dt=ap.hat.step1[-c(1:d.x)], A=A.gm, b=b.gm, 
+    bt.pre = ap.hat.step1[c(1:d.x)]
+    dt.pre = ap.hat.step1[-c(1:d.x)]
+    for (cnt.it in (1:max.iter)){
+      step2_1.out = estimate_gm(y=y, x=x, f=f, bt=bt.pre, dt=dt.pre, A=A.gm, b=b.gm, 
                               M=M, tau1=tau1, tau2=tau2, params=params, eta = eta)
     gm.hat = step2_1.out$gm
     d.hat = step2_1.out$d.t
@@ -116,6 +119,7 @@ fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=
     cat('Results', '\n')
     cat('-----------------------------------------', '\n')
     cat('Estimation Method =',method, '\n')
+    cat('Number of Iterations = ', cnt.it, '\n')
     cat('Sample size =', n.obs, '\n')
     cat('Obj val     =', objval, '\n')
     cat('Beta.hat    =', bt.hat, '\n')
@@ -123,6 +127,9 @@ fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=
     cat('Gamma.hat   =', gm.hat, '\n')
     cat('-----------------------------------------', '\n')
     #return(list(bt.hat=bt.hat, dt.hat=dt.hat, gm.hat=gm.hat, result.out=step2_1.out)) # Output for detailed results
+    }
+    bt.pre=bt.hat
+    dt.pre=dt.hat
     return(list(bt.hat=bt.hat, dt.hat=dt.hat, gm.hat=gm.hat, objval=objval))
   }
   else {
