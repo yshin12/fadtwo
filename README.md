@@ -14,3 +14,7 @@ There are two codes:
   (4) rz_selection_joint.R - for estimating the RZ model with model selection; joint method
   
   (5) rz_selection_iter.R - for estimating the RZ model with model selection; iterative method
+  
+  (6) rz_dat_original.csv - The original data file from RZ paper; required to generate an updated data for the STATA usage later
+  
+  
