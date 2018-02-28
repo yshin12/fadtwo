@@ -131,13 +131,7 @@ grid=expand.grid(1,grid.base,grid.base)
 L.p = 0
 U.p = 1
 
-tau1 = 0.05
-tau2 = 0.95
-
-#ld = 0
-sig2 = (0.00016)
-ld = 2*sig2/n.obs               #AIC
-#ld = log(n.obs)*0.5^2/n.obs     #BIC
+ld = log(n.obs)*var(Y)/n.obs     #BIC
 
 # K.bar: number of maximum iterations
 K.bar = 1
@@ -146,7 +140,7 @@ K.bar = 1
 # eta: the size of effective zero
 eta = 1e-6
 
-ex_out=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method=method, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, 		U.gm3=U.gm3, tau1=tau1, tau2=tau2, eta=eta, params=params, grid=grid, max.iter=K.bar, ld=ld, p=p)
+ex_out=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method=method, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1, tau2=tau2, eta=eta, params=params, grid=grid, max.iter=K.bar, ld=ld, p=p)
 
 print(ex_out)
 
