@@ -128,7 +128,7 @@ U.gm3 = Bnd.Const
 L.p = 0
 U.p = 1
 
-ld = log(n.obs)*var(Y)/n.obs     #BIC
+ld = log(n.obs)*var(y)/n.obs     #BIC
 
 
 # eta: the size of effective zero
