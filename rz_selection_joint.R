@@ -133,7 +133,7 @@ tau2 = 0.95
 #ld = 0
 sig2 = (0.00016)
 ld = 2*sig2/n.obs               #AIC
-#ld = log(n.obs)*sig2^2/n.obs     #BIC
+#ld = log(n.obs)*sig2/n.obs     #BIC
 
 
 # eta: the size of effective zero
