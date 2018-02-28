@@ -17,4 +17,8 @@ There are two codes:
   
   (6) rz_dat_original.csv - The original data file from RZ paper; required to generate an updated data for the STATA usage later
   
+  (7) Stata/jordagk_llss.do - a STATA file slightly modified from the RZ paper; it uses rz_dat_updated.csv to reflect different economic status from LLSS estimation.
+  
+  (8) Stata/rz_dat_updated.csv - an updated data file; generated from rz_fadtwo.R file.
+  
   
