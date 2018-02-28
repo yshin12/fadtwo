@@ -104,7 +104,7 @@ for (c.rep in (1:re)){
   grid=expand.grid(1,grid.base,grid.base)
   
   # Step 1: Estimate the model using all factors
-  ex_out_iter=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method='iter', L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, tau1=tau1, tau2=tau2, 
+  ex_out_iter=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method='iter', L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1, tau2=tau2, 
                                eta=eta, params=params, grid=grid, max.iter=K.bar, ld=ld, p=p)
   print(ex_out_iter)
   
