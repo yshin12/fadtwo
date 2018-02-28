@@ -57,8 +57,8 @@ tau1 = 0.05
 tau2 = 0.95
 
 #ld = 0
-#ld = 2*0.5^2/n.obs               #AIC
-ld = log(n.obs)*0.5^2/n.obs     #BIC
+#ld = 2*sig2/n.obs               #AIC
+ld = log(n.obs)*sig2/n.obs     #BIC
 
 re = 1
 bt.all = rep(NA,re)
