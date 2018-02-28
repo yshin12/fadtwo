@@ -1,4 +1,4 @@
-a# File Name: lib_FADTWO.R
+# File Name: lib_FADTWO.R
 # This library contains all functions necessary for "FActor Driven TWO-regime regresssion (FADTWO)"
 #
 # Latest Update: 
