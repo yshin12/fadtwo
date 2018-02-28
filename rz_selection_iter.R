@@ -104,25 +104,26 @@ p = ncol(f2)   # Selectino of T-bill given unemp is included in the model
 # Choose the size of the parameter sets
 #
 #-----------------------------------------------------------------------------------------------------------------------------
-L.bt = rep(-20,d.x)
-U.bt = rep(20,d.x)
+Bnd.Const = 20
+L.bt = rep(-Bnd.Const,d.x)
+U.bt = rep(Bnd.Const,d.x)
 
-L.dt = rep(-20,d.x)
-U.dt = rep(20,d.x)
+L.dt = rep(-Bnd.Const,d.x)
+U.dt = rep(Bnd.Const,d.x)
 
-L.gm = c(1,rep(-20,d.f-1))
-U.gm = c(1,rep(20,d.f-1))
+L.gm = c(1,rep(-Bnd.Const,d.f-1))
+U.gm = c(1,rep(Bnd.Const,d.f-1))
 
 
 
 L.gm1 = c(1)
 U.gm1 = c(1)
 
-L.gm2 = c(rep(-20,p))
-U.gm2 = c(rep(20,p))
+L.gm2 = c(rep(-Bnd.Const,p))
+U.gm2 = c(rep(Bnd.Const,p))
 
-L.gm3 = -20
-U.gm3 = 20
+L.gm3 = -Bnd.Const
+U.gm3 = Bnd.Const
 
 zeta=2
 grid.base = seq(from=L.gm2, to=U.gm2, by =zeta)
