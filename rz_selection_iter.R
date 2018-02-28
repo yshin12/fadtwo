@@ -132,7 +132,7 @@ grid=expand.grid(1,grid.base,grid.base)
 L.p = 0
 U.p = 1
 
-ld = log(n.obs)*var(Y)/n.obs     #BIC
+ld = log(n.obs)*var(y)/n.obs     #BIC
 
 # K.bar: number of maximum iterations
 K.bar = 1
