@@ -92,7 +92,8 @@ d.x = ncol(x)
 # When you change the factor design, you also need to change grid, so that the dimension of grid matches the number of factors
 #
 #-----------------------------------------------------------------------------------------------------------------------------
-f = cbind(my.ts[(n.lags:(n.obs.raw-1)),c('unemp', 'tbill')],-1)
+f = cbind(my.ts[(n.lags:(n.obs.raw-1)),c('unemp')],-1)
+#f = cbind(my.ts[(n.lags:(n.obs.raw-1)),c('unemp', 'tbill')],-1)
 #f = cbind(my.ts[(n.lags:(n.obs.raw-1)),'unemp'], my.ts[(n.lags:(n.obs.raw-1)),'tbill'], my.ts[(n.lags:(n.obs.raw-1)),'y'],-1)
 
 # Number of factors, dim(f)
@@ -103,14 +104,15 @@ d.f = ncol(f)
 # Choose the size of the parameter sets
 #
 #-----------------------------------------------------------------------------------------------------------------------------
-L.bt = rep(-20,d.x)
-U.bt = rep(20,d.x)
+Bnd.Const = 20
+L.bt = rep(-Bnd.Const,d.x)
+U.bt = rep(Bnd.Const,d.x)
 
-L.dt = rep(-20,d.x)
-U.dt = rep(20,d.x)
+L.dt = rep(-Bnd.Const,d.x)
+U.dt = rep(Bnd.Const,d.x)
 
-L.gm = c(1,rep(-20,d.f-1))
-U.gm = c(1,rep(20,d.f-1))
+L.gm = c(1,rep(-Bnd.Const,d.f-1))
+U.gm = c(1,rep(Bnd.Const,d.f-1))
 
 # Joint Estimation Algorithm
 if (method == 'joint') {
@@ -129,9 +131,22 @@ if (method == 'iter'){
   time.start = proc.time()[3]
   
   # Generate the grid points
-  zeta=0.5
-  grid.base = seq(from=-20, to=20, by =zeta)
-  grid=expand.grid(1,grid.base, grid.base)
+  zeta=2
+  grid.base = seq(from=-Bnd.Const, to=Bnd.Const, by =zeta)
+  if (d.f == 2){
+    grid=expand.grid(1,grid.base)  
+  } else if (d.f == 3){
+    grid=expand.grid(1,grid.base, grid.base)  
+  } else if (d.f == 4 ){
+    grid=expand.grid(1,grid.base, grid.base, grid.base)  
+  } else if (d.f == 5) {
+    grid=expand.grid(1,grid.base, grid.base, grid.base, grid.base)  
+  } else {
+    # Define your grid based on the number of factors in your model. For example,
+    # if d.f=6, then
+    # grid=expand.grid(1,grid.base, grid.base, grid.base, grid.base, grid.base)  
+  }
+  
   
   est.out=fadtwo(y=y,x=x,f=f, method='iter', L.gm=L.gm, U.gm=U.gm, tau1=tau1, tau2=tau2, grid=grid, max.iter=K.bar)
   print(est.out)
@@ -198,4 +213,16 @@ recess = ggplot(data.frame(my.ts, dat.year))+
   ylab('GDP')
 print(recess)
 dev.off()
+
+
+# Generate new data set for STATA - IV reg
+dat.temp=read.csv(file='rz_dat_original.csv', header=T)
+fstate = rep(NA,nrow(dat.temp))
+n.miss = length(fstate)-length(state.y)
+fstate[-(1:n.miss)] = as.integer(state.y)
+dat.temp = cbind(dat.temp,fstate)
+write.csv(dat.temp, file='rz_dat_updated.csv', na='')
+
+
+
 

@@ -119,13 +119,13 @@ U.gm = c(1,rep(Bnd.Const,d.f-1))
 L.gm1 = c(1)
 U.gm1 = c(1)
 
-L.gm2 = c(rep(-Bnd.Const,p))
-U.gm2 = c(rep(Bnd.Const,p))
+L.gm2 = c(rep(-Bnd.Const/2,p))
+U.gm2 = c(rep(Bnd.Const/2,p))
 
-L.gm3 = -Bnd.Const
-U.gm3 = Bnd.Const
+L.gm3 = -Bnd.Const/2
+U.gm3 = Bnd.Const/2
 
-zeta=2
+zeta=0.05
 grid.base = seq(from=L.gm2, to=U.gm2, by =zeta)
 grid=expand.grid(1,grid.base,grid.base)
 
