@@ -106,7 +106,7 @@ p = ncol(f2)   # Selectino of T-bill given unemp is included in the model
 #-----------------------------------------------------------------------------------------------------------------------------
 Bnd.Const = 20
 L.bt = rep(-Bnd.Const,d.x)
-U.bt = rep(Bnd.const,d.x)
+U.bt = rep(Bnd.Const,d.x)
 
 L.dt = rep(-Bnd.Const,d.x)
 U.dt = rep(Bnd.Const,d.x)
