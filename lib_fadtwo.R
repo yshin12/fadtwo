@@ -209,7 +209,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     gm1.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f - p)]
     gm2.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x  + d.f - p + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f)]
     gm.hat = c(gm1.hat, gm2.hat)
-    gm.hat = gm.hat * (gm.hat > eta)
+    gm.hat = gm.hat * (abs(gm.hat) > eta)
     e.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x  + d.f + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f + p)]
     #objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=eta)
     objval=result$objval
