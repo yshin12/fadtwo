@@ -218,11 +218,11 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     d.hat = opt.par[paste('d',c(1:n.obs),sep='_')]
     dt.tilde = opt.par[paste('dt.tilde',c(1:d.x),sep='_')]
     dt.hat = dt.tilde + L.dt            # Note that dt.tilde = dt.hat - L.dt.  
-	 gm.hat = opt.par[paste('gm',c(1:d.f),sep='_')]
-      gm.hat = gm.hat * (gm.hat > eta)    # Only keep gm.hat bigger than the effective zero.
+    gm.hat = opt.par[paste('gm',c(1:d.f),sep='_')]
+    gm.hat = gm.hat * (gm.hat > eta)    # Only keep gm.hat bigger than the effective zero.
       gm1.hat = gm.hat[c(1:ncol(f1))]
-		gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
-		gm3.hat = gm.hat[length(gm.hat)]
+      gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
+      gm3.hat = gm.hat[length(gm.hat)]
     e.hat = opt.par[paste('e',c(1:p),sep='_')]
     #objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=eta)
     objval=result$objval
