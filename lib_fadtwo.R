@@ -1186,3 +1186,20 @@ irf_local_projection <- function (y, x, s, h, print=F) {
 }
 
 
+
+# Estimate Factors using PCA
+# 
+# Input: 
+#         X: a TxN matric
+#         k: the number of factors to estimate
+# Output:
+#         F: a Txk matrix of factors
+#
+get_factors <- function(X,k){
+  q.X = X %*% t(X)
+  T = nrow(X)
+  e.fit = eigen(q.X)
+  F = sqrt(T)* e.fit$vectors[,(1:k)]  
+  eigen.values = e.fit$values[1:k]
+  return(list(F=F, eigen.values=eigen.values))   
+}
