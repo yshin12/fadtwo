@@ -203,7 +203,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     objcon = mean(y^2)
     
     # 2. Build the constraints
-    const = build_constraint_selection(L.bt=L.bt, U.bt=U.bt, L.dt=L.dt, U.dt=U.dt, L.gm1=L.gm1, U.gm=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, M=M, eta=eta, 
+    const = build_constraint_selection(L.bt=L.bt, U.bt=U.bt, L.dt=L.dt, U.dt=U.dt, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, M=M, eta=eta, 
                              d.x=d.x, d.f=d.f, n.obs=n.obs, f=f, tau1=tau1, tau2=tau2, p=p)
     A.const = const$A.const
     b.const = const$b.const
@@ -256,7 +256,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
 
     # Calculate Big-M  
     A.gm = c(1,-1) %x% diag(rep(1,d.f)) 
-    b.gm = c(U.gm, -L.gm)
+    b.gm = c(U.gm1, U.gm2, U.gm3, -L.gm1, -L.gm2, -L.gm3)
     M = rep(NA,n.obs)
     for (i in (1:n.obs)){
       M[i] = get_m(f=f[i,],A=A.gm,b=b.gm)$m
@@ -264,10 +264,10 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     
     bt.pre = ap.hat.step1[c(1:d.x)]
     dt.pre = ap.hat.step1[-c(1:d.x)]
-
-#bt.pre=c(0.1137517, 0.1308253, 0.09609715, -0.02124596, -0.009057051, 0.01754676, 1.407947, -0.9421353, 0.7915665, -0.3855972, 0.4666518, -0.7873762, 0.3730487, 0.02099868)
-
-#dt.pre=c(-0.09237944, -0.112688, -0.1321168, 0.03301762, -0.03461472, 0.02713847, -0.124312, 0.6114814, -0.5539258, 0.1700254, 0.2375884, 0.3583261, -0.9860771, 0.3360492)
+    
+    # Test to compare it with joint estimation codes
+    # bt.pre=c(0.1137517, 0.1308253, 0.09609715, -0.02124596, -0.009057051, 0.01754676, 1.407947, -0.9421353, 0.7915665, -0.3855972, 0.4666518, -0.7873762, 0.3730487, 0.02099868)
+    # dt.pre=c(-0.09237944, -0.112688, -0.1321168, 0.03301762, -0.03461472, 0.02713847, -0.124312, 0.6114814, -0.5539258, 0.1700254, 0.2375884, 0.3583261, -0.9860771, 0.3360492)
 
 
     for (cnt.it in (1:max.iter)){
@@ -275,11 +275,11 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
       step2_1.out = estimate_gm_selection(y=y, x=x, f1=f1, f2=f2, bt=bt.pre, dt=dt.pre, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, 
                                           U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, M=M, tau1=tau1, tau2=tau2, params=params, eta = eta, ld=ld, p=p)
       gm.hat = step2_1.out$gm
-      gm1.hat = gm.hat[c(1:ncol(f1))]
-		gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
-		gm3.hat = gm.hat[length(gm.hat)]
-      e.hat = step2_1.out$e
       gm.hat = gm.hat * (gm.hat > eta)
+      gm1.hat = gm.hat[c(1:ncol(f1))]
+		  gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
+		  gm3.hat = gm.hat[length(gm.hat)]
+      e.hat = step2_1.out$e
       d.hat = step2_1.out$d.t
       
       # Update ap.hat
