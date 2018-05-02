@@ -134,7 +134,7 @@ ld = log(n.obs)*var(y)/n.obs     #BIC
 # eta: the size of effective zero
 eta = 1e-6
 
-ex_out=fadtwo_selection(y=y,x=x,f1=f1,f2=cbind(f2),method=method, L.bt=L.bt,U.bt=U.bt, L.dt=L.dt,U.dt=U.dt, L.gm1=L.gm1, U.gm1=U.gm1,L.gm2=L.gm2,U.gm2=U.gm2,L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1,tau2=tau2, eta=eta, params=params,ld=ld, p=p)
+ex_out=fadtwo_selection(y=y,x=x,f1=f1,f2=f2,method=method, L.bt=L.bt,U.bt=U.bt, L.dt=L.dt,U.dt=U.dt, L.gm1=L.gm1, U.gm1=U.gm1,L.gm2=L.gm2,U.gm2=U.gm2,L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1,tau2=tau2, eta=eta, params=params,ld=ld)
 
 print(ex_out)
 
