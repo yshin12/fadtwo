@@ -15,7 +15,7 @@ source('lib_fadtwo.R')
 dgp1 <- function(n.obs,d.x,d.f){
   bt = rep(1,d.x)
   dt = rep(1,d.x)
-  gm = c(1,0.5417, 0.5417)
+  gm = c(1,2/3, 2/3)
   
   # Data dictionary: denerate x,f,eps, and y
   x = cbind(rep(1,n.obs),matrix( rnorm( (d.x-1)*n.obs, mean = 0, sd = 1 ), nrow=n.obs, ncol=(d.x-1) ))
@@ -105,7 +105,7 @@ for (c.rep in (1:re)){
   
   # Step 1: Estimate the model using all factors
   ex_out_iter=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method='iter', L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1, tau2=tau2, 
-                               eta=eta, params=params, grid=grid, max.iter=K.bar, ld=ld, p=p)
+                               eta=eta, params=params, grid=grid, max.iter=K.bar, ld=ld)
   print(ex_out_iter)
   
   # Step 2: 

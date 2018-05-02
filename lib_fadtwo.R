@@ -15,7 +15,7 @@
 
 fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=NULL, L.gm=NULL, U.gm=NULL, tau1, tau2, 
                    eta=1e-6, params=list(OutputFlag=1, FeasibilityTol=1e-9),
-                   grid=NULL, max.iter=1) {
+                   grid=NULL, max.iter=2) {
   
   # Model: y = x'bt + x'dt * 1{f'gm > 0} + eps
   #
@@ -149,7 +149,7 @@ fadtwo <- function(y,x,f, method="joint", L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=
 #
 
 fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NULL, U.dt=NULL, L.gm1, U.gm1, L.gm2, U.gm2, L.gm3, U.gm3, 
-                             L.p, U.p, tau1, tau2, eta, params=list(OutputFlag=1, FeasibilityTol=1e-9), grid=NULL, max.iter=1, ld, p) 
+                             L.p, U.p, tau1, tau2, eta, params=list(OutputFlag=1, FeasibilityTol=1e-9), grid=NULL, max.iter=2, ld) 
 
 
   {
@@ -159,22 +159,33 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
   # Input:
   #   y: outcome variable
   #   x: covariates
-  #   f: factors
+  #   f1: factors known to be active 
+  #   f2: factors to be selected
+  #   method: estimation method, "joint" or "iter"
   #   L.bt / U.bt: Lower and upper bounds for bt. The dim should be equal to the dim of bt
   #   L.dt / U.dt: Lower and upper bounds for dt
-  #   L.gm / U.gm: Lower and upper bounds for gm
+  #   L.gm1 / U.gm1: Lower and upper bounds for gm1 (corresponding to f1)
+  #   L.gm2 / U.gm2: Lower and upper bounds for gm2 (corresponding to f2)
+  #   L.gm3 / U.gm3: scalars, Lower and upper bound for gm3 (parameter for the constant term -1)
+  #   L.p: the minimum number of factors to be included among f2 ('p lower bar' in the paper)
+  #   U.p: the maximum number of factors to be included among f2 ('p upper bar' in the paper)
   #   tau1: Lower bound for the proportion of regime 1, i.e. (f'gm > 0)
   #   tau2: Upper bound for the proportion of regime 1, i.e. (f'gm > 0)
   #   eta: effective zero
   #   params: parameters for gurobi engine
+  #   grid: grid points for searching gm.hat when method="iter"
+  #   max.iter: the number of iterations (updates) after the grid search when method="iter"
+  #   ld: a constant multiplied to the penalty term, AIC/BIC coefficient ('lambda' in the paper)
   #
+
   x = as.matrix(x)
   f1 = as.matrix(f1)
   f2 = as.matrix(f2)
   f = cbind(f1, f2, -1)
   n.obs = nrow(x)     # Number of observations
-  d.x = ncol(x)       # Dimension of regressors
-  d.f = ncol(f)       # Dimension of factors
+  d.x = ncol(x)       # Dimension of x_t
+  d.f = ncol(f)       # Dimension of f_t
+  p = ncol(f2)			 # Dimension of f_2t
   
   if (method=="joint"){
     # Calculate Big-M  
@@ -192,7 +203,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     objcon = mean(y^2)
     
     # 2. Build the constraints
-    const = build_constraint_selection(L.bt=L.bt, U.bt=U.bt, L.dt=L.dt, U.dt=U.dt, L.gm1=L.gm1, U.gm=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, M=M, eta=eta, 
+    const = build_constraint_selection(L.bt=L.bt, U.bt=U.bt, L.dt=L.dt, U.dt=U.dt, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, M=M, eta=eta, 
                              d.x=d.x, d.f=d.f, n.obs=n.obs, f=f, tau1=tau1, tau2=tau2, p=p)
     A.const = const$A.const
     b.const = const$b.const
@@ -200,17 +211,19 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     # 3. Estimate the model
     result = estimate_selection(y=y, x=x, f=f, Q.obj=Q.obj, L.obj=L.obj, objcon=objcon, A.const=A.const, b.const=b.const, L.bt=L.bt, L.gm=L.gm, params=params, p=p)
     opt.par = result$x
-    bt.hat = opt.par[1:d.x]
-    l.hat = opt.par[(d.x+1):(d.x*(n.obs+1))]
-    d.hat = opt.par[(d.x*(n.obs+1) +1):(d.x*(n.obs+1) + n.obs)]
-    dt.tilde = opt.par[((d.x*(n.obs+1))+ n.obs + 1):( (d.x*(n.obs+1))+ n.obs  + d.x )]
-    # Note that dt.tilde = dt.hat - L.dt.  
-    dt.hat = dt.tilde + L.dt  
-    gm1.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f - p)]
-    gm2.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x  + d.f - p + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f)]
-    gm.hat = c(gm1.hat, gm2.hat)
-    gm.hat = gm.hat * (abs(gm.hat) > eta)
-    e.hat = opt.par[((d.x*(n.obs+1))+n.obs  + d.x  + d.f + 1):((d.x*(n.obs+1))+n.obs  + d.x  + d.f + p)]
+	   names(opt.par) = c(paste('bt',c(1:d.x),sep='_'), paste('l',c(1:(d.x*n.obs)),sep='_'), paste('d',c(1:n.obs),sep='_'), 
+								paste('dt.tilde',c(1:d.x),sep='_'), paste('gm',c(1:d.f),sep='_'), paste('e',c(1:p),sep='_'))
+    bt.hat = opt.par[paste('bt',c(1:d.x),sep='_')]
+    l.hat = opt.par[paste('l',c(1:(d.x*n.obs)),sep='_')]
+    d.hat = opt.par[paste('d',c(1:n.obs),sep='_')]
+    dt.tilde = opt.par[paste('dt.tilde',c(1:d.x),sep='_')]
+    dt.hat = dt.tilde + L.dt            # Note that dt.tilde = dt.hat - L.dt.  
+    gm.hat = opt.par[paste('gm',c(1:d.f),sep='_')]
+    gm.hat = gm.hat * (gm.hat > eta)    # Only keep gm.hat bigger than the effective zero.
+      gm1.hat = gm.hat[c(1:ncol(f1))]
+      gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
+      gm3.hat = gm.hat[length(gm.hat)]
+    e.hat = opt.par[paste('e',c(1:p),sep='_')]
     #objval=get_objval(y,x,f,bt.hat,dt.hat,gm.hat, eta=eta)
     objval=result$objval
     cat('-----------------------------------------', '\n')
@@ -221,8 +234,10 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     cat('Obj val     =', objval, '\n')
     cat('Beta.hat   =', bt.hat, '\n')
     cat('Delta.hat   =', dt.hat, '\n')
-    cat('Gamma1.hat   =', gm1.hat, '\n')
-    cat('Gammm2.hat   =', gm2.hat, '\n')
+    cat('Gamma.hat   =', gm.hat, '\n')
+    cat(' Gamma1.hat =', gm1.hat, '\n')
+    cat(' Gamma2.hat =', gm2.hat, '\n')
+    cat(' Gamma3.hat =', gm3.hat, '\n')
     cat('-----------------------------------------', '\n')
     # return(list(bt.hat=bt.hat, dt.hat=dt.hat, gm.hat=gm.hat, result.out=result))  # Output for detailed results
     return(list(bt.hat=bt.hat, dt.hat=dt.hat, gm.hat=gm.hat, objval=objval))
@@ -241,7 +256,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
 
     # Calculate Big-M  
     A.gm = c(1,-1) %x% diag(rep(1,d.f)) 
-    b.gm = c(U.gm, -L.gm)
+    b.gm = c(U.gm1, U.gm2, U.gm3, -L.gm1, -L.gm2, -L.gm3)
     M = rep(NA,n.obs)
     for (i in (1:n.obs)){
       M[i] = get_m(f=f[i,],A=A.gm,b=b.gm)$m
@@ -249,13 +264,22 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     
     bt.pre = ap.hat.step1[c(1:d.x)]
     dt.pre = ap.hat.step1[-c(1:d.x)]
+    
+    # Test to compare it with joint estimation codes
+    # bt.pre=c(0.1137517, 0.1308253, 0.09609715, -0.02124596, -0.009057051, 0.01754676, 1.407947, -0.9421353, 0.7915665, -0.3855972, 0.4666518, -0.7873762, 0.3730487, 0.02099868)
+    # dt.pre=c(-0.09237944, -0.112688, -0.1321168, 0.03301762, -0.03461472, 0.02713847, -0.124312, 0.6114814, -0.5539258, 0.1700254, 0.2375884, 0.3583261, -0.9860771, 0.3360492)
+
+
     for (cnt.it in (1:max.iter)){
       # Estimate gm.hat by MIO and Update ap.hat
       step2_1.out = estimate_gm_selection(y=y, x=x, f1=f1, f2=f2, bt=bt.pre, dt=dt.pre, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, 
                                           U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, M=M, tau1=tau1, tau2=tau2, params=params, eta = eta, ld=ld, p=p)
       gm.hat = step2_1.out$gm
-      e.hat = step2_1.out$e
       gm.hat = gm.hat * (gm.hat > eta)
+      gm1.hat = gm.hat[c(1:ncol(f1))]
+		  gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
+		  gm3.hat = gm.hat[length(gm.hat)]
+      e.hat = step2_1.out$e
       d.hat = step2_1.out$d.t
       
       # Update ap.hat
@@ -273,6 +297,9 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
       cat('Beta.hat    =', bt.hat, '\n')
       cat('Delta.hat   =', dt.hat, '\n')
       cat('Gamma.hat   =', gm.hat, '\n')
+      cat(' Gamma1.hat =', gm1.hat, '\n')
+      cat(' Gamma2.hat =', gm2.hat, '\n')
+      cat(' Gamma3.hat =', gm3.hat, '\n')
       cat('-----------------------------------------', '\n')
       
       # Update the initial values of bt.hat and dt.hat
