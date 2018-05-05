@@ -886,7 +886,7 @@ step1_grid <- function(y, x, f, grid, eta=1e-6){
   dim.x = ncol(x)
   result = matrix(NA, nrow=n.grid, ncol=(1+2*dim.x))   # Collect ap.hat and the objective function value
   for (i in (1:n.grid)){
-    f.index = as.numeric(f %*% t(grid[i,]))
+    f.index = as.numeric(f %*% (grid[i,]))
     x.reg = cbind(x, x*(f.index>eta*0.99))
     m = lm(y~x.reg-1)
     result[i,] = c(sum(m$resid^2),coef(m))
@@ -1209,4 +1209,38 @@ get_factors <- function(X,k){
   F = sqrt(T)* e.fit$vectors[,(1:k)]  
   eigen.values = e.fit$values[1:k]
   return(list(F=F, eigen.values=eigen.values))   
+}
+
+# Generate the grid points
+#
+# Input:
+#         option.grid: 'fixed' or 'random'
+#         width: d.grid x 1 vector, width of the grid poin in the fixed method (zeta inthe paper)
+#         n.total: the total number of grid points in the random method
+#         d.grid: the dimension of grid points (d.f)
+#         L.grid: d.grid x 1 vector, lower bounds for each dimension
+#         U.grid: d.grid x 1 vector, upper bounds for each dimension
+#
+# Output:
+#         grid.points: 
+#
+gen_grid = function(option.grid, width=NULL, n.total=NULL, L.grid, U.grid){
+  d.grid = length(L.grid)
+  if (option.grid == 'fixed') {
+    grid.base = list()
+    for (i in c(1:d.grid)){
+      grid.base[[i]] = seq(from=L.grid[i], to=U.grid[i], by=width[i])
+    }
+    grid.points=expand.grid(grid.base)
+  } else if (option.grid == 'random') {
+    grid.points = matrix(NA, n.total, d.grid)
+    for (i in c(1:d.grid)){
+      grid.points[,i] = runif(n=n.total, min=L.grid[i], max=U.grid[i])
+    }
+  } else {
+    cat("Error: option.grid must be either fixed or random \n")
+    break
+  }
+  grid.points = as.matrix(grid.points)
+  return(grid.points)
 }
