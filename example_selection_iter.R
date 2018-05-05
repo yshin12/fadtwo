@@ -99,9 +99,16 @@ for (c.rep in (1:re)){
   f2=cbind(f[,(2:(2+p-1))])
   
   # Iterative Method
-  zeta=0.5
-  grid.base = seq(from=-3, to=3, by =zeta)
-  grid=expand.grid(1,grid.base,grid.base)
+  #---------------------------------------------------------
+  # Construct the grid points by equal width
+  grid.gen.option = 'fixed'
+  zeta = 0.5
+  fixed.width = rep(zeta,d.f)
+  grid = gen_grid(option.grid = grid.gen.option, width=fixed.width, n.total=NULL, L.grid=L.gm, U.grid=U.gm)
+  # Construct the grid random grid points
+  #grid.gen.option = 'random'
+  #total.grid.points = 1000
+  #grid = gen_grid(option.grid = grid.gen.option, width=NULL, n.total=total.grid.points, L.grid=L.gm, U.grid=U.gm)
   
   # Step 1: Estimate the model using all factors
   ex_out_iter=fadtwo_selection(y=y, x=x, f1=f1, f2=f2, method='iter', L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, L.p=L.p, U.p=U.p, tau1=tau1, tau2=tau2, 
