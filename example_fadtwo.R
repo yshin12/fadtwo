@@ -60,9 +60,19 @@ ex_out=fadtwo(y=y,x=x,f=f, method='joint', L.bt=L.bt, U.bt=U.bt, L.dt=L.dt, U.dt
 print(ex_out)
 
 # Iterative Method
-zeta=0.5
-grid.base = seq(from=-3, to=3, by =zeta)
-grid=expand.grid(1,grid.base,grid.base)
+
+# Construct the grid points by equal width
+grid.gen.option = 'fixed'
+zeta = 0.1
+fixed.width = rep(zeta,d.f)
+
+grid = gen_grid(option.grid = grid.gen.option, width=fixed.width, n.total=NULL, L.grid=L.gm, U.grid=U.gm)
+
+# Construct the grid random grid points
+# grid.gen.option = 'random'
+# total.grid.points = 1000
+#grid = gen_grid(option.grid = grid.gen.option, width=NULL, n.total=total.grid.points, L.grid=L.gm, U.grid=U.gm)
+
 
 ex_out_iter=fadtwo(y=y,x=x,f=f, method='iter', L.gm=L.gm, U.gm=U.gm, tau1=tau1, tau2=tau2, grid=grid)
 print(ex_out_iter)
