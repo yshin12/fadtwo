@@ -882,6 +882,7 @@ estimate_selection <- function (y, x, f, Q.obj, L.obj, objcon, A.const, b.const,
 #
 step1_grid <- function(y, x, f, grid, eta=1e-6){
   n.grid = nrow(grid)
+  n.progress = 0
   dim.x = ncol(x)
   result = matrix(NA, nrow=n.grid, ncol=(1+2*dim.x))   # Collect ap.hat and the objective function value
   for (i in (1:n.grid)){
@@ -892,7 +893,13 @@ step1_grid <- function(y, x, f, grid, eta=1e-6){
     if (is.na(sum(coef(m)))) {
       result[i,1]=Inf
     }
+    progress = floor(i/n.grid * 100)
+    if ( progress > n.progress ){
+      cat('Grid Search in Progress :',progress,'% Completed \n' )
+      n.progress = n.progress + 1
+    }
   }
+
   opt = which.min(result[,1])
   ap.hat = result[opt,-1]
   gm.hat = as.numeric(grid[opt,])
