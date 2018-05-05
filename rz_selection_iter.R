@@ -125,9 +125,11 @@ U.gm2 = c(rep(Bnd.Const/2,p))
 L.gm3 = -Bnd.Const/2
 U.gm3 = Bnd.Const/2
 
-zeta=0.05
-grid.base = seq(from=L.gm2, to=U.gm2, by =zeta)
-grid=expand.grid(1,grid.base,grid.base)
+# Generate the grid points
+zeta = 0.5
+grid=gen_grid(option.grid='fixed', width=c(1,rep(zeta,d.f-1)), n.total=NULL, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
+#grid=gen_grid(option.grid='random', width=NULL, n.total=1000, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
+
 
 L.p = 0
 U.p = 1

@@ -131,22 +131,9 @@ if (method == 'iter'){
   time.start = proc.time()[3]
   
   # Generate the grid points
-  zeta=2
-  grid.base = seq(from=-Bnd.Const, to=Bnd.Const, by =zeta)
-  if (d.f == 2){
-    grid=expand.grid(1,grid.base)  
-  } else if (d.f == 3){
-    grid=expand.grid(1,grid.base, grid.base)  
-  } else if (d.f == 4 ){
-    grid=expand.grid(1,grid.base, grid.base, grid.base)  
-  } else if (d.f == 5) {
-    grid=expand.grid(1,grid.base, grid.base, grid.base, grid.base)  
-  } else {
-    # Define your grid based on the number of factors in your model. For example,
-    # if d.f=6, then
-    # grid=expand.grid(1,grid.base, grid.base, grid.base, grid.base, grid.base)  
-  }
-  
+  zeta = 2
+  grid=gen_grid(option.grid='fixed', width=c(1,rep(zeta,d.f-1)), n.total=NULL, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
+  #grid=gen_grid(option.grid='random', width=NULL, n.total=1000, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
   
   est.out=fadtwo(y=y,x=x,f=f, method='iter', L.gm=L.gm, U.gm=U.gm, tau1=tau1, tau2=tau2, grid=grid, max.iter=K.bar)
   print(est.out)
