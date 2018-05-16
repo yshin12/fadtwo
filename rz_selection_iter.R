@@ -127,7 +127,7 @@ U.gm3 = Bnd.Const/2
 
 # Generate the grid points
 zeta = 0.5
-grid=gen_grid(option.grid='fixed', width=c(1,rep(zeta,d.f-1)), n.total=NULL, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
+grid=gen_grid(option.grid='fixed', width=c(1,rep(zeta,d.f-1)), n.total=NULL, L.grid=c(L.gm1,rep(-Bnd.Const,d.f-1)), U.grid=c(U.gm1,rep(Bnd.Const,d.f-1)))
 #grid=gen_grid(option.grid='random', width=NULL, n.total=1000, L.grid=c(1,rep(-Bnd.Const,d.f-1)), U.grid=c(1,rep(Bnd.Const,d.f-1)))
 
 
