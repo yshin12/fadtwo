@@ -219,7 +219,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     dt.tilde = opt.par[paste('dt.tilde',c(1:d.x),sep='_')]
     dt.hat = dt.tilde + L.dt            # Note that dt.tilde = dt.hat - L.dt.  
     gm.hat = opt.par[paste('gm',c(1:d.f),sep='_')]
-    gm.hat = gm.hat * (gm.hat > eta)    # Only keep gm.hat bigger than the effective zero.
+    gm.hat = gm.hat * (abs(gm.hat) > eta)    # Only keep gm.hat bigger than the effective zero.
       gm1.hat = gm.hat[c(1:ncol(f1))]
       gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
       gm3.hat = gm.hat[length(gm.hat)]
@@ -275,7 +275,7 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
       step2_1.out = estimate_gm_selection(y=y, x=x, f1=f1, f2=f2, bt=bt.pre, dt=dt.pre, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, 
                                           U.gm2=U.gm2, L.gm3=L.gm3, U.gm3=U.gm3, M=M, tau1=tau1, tau2=tau2, params=params, eta = eta, ld=ld, p=p)
       gm.hat = step2_1.out$gm
-      gm.hat = gm.hat * (gm.hat > eta)
+      gm.hat = gm.hat * (abs(gm.hat) > eta)
       gm1.hat = gm.hat[c(1:ncol(f1))]
 		  gm2.hat = gm.hat[c((ncol(f1)+1):(length(gm.hat)-1))]
 		  gm3.hat = gm.hat[length(gm.hat)]
