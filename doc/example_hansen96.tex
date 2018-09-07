@@ -1,0 +1,59 @@
+\documentclass[12pt, reqno]{amsart}
+\usepackage{geometry, setspace, amsmath}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+
+\begin{document}
+
+\onehalfspacing
+
+\section*{An Empirical Example: Testing Linearity of US GNP}
+
+In this section, we revisit the empirical application in Hansen (1996), who tested Potter's (1995) model of US GNP. 
+Hansen (1996) use annualized quarterly growth rates, say $y_t$, for the period 1947-1990.
+His estimates are as follows:
+\begin{align}\label{hansen-estimates}
+\begin{split}
+y_t &=  - 3.21 + 0.51 y_{t-1} - 0.93 y_{t-2} - 0.38 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} \leq 0.01$} \\
+      &   \;\;\;\;\;\; (2.12) \;\;\; (0.25)   \;\;\;\;\;\;\;\; (0.31)   \;\;\;\;\;\;\;\; (0.25)     \\
+y_t &=  2.14 + 0.30 y_{t-1} + 0.18 y_{t-2} - 0.16 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} > 0.01$,}  \\
+      &   \;\;\; (0.77) \;\;\; (0.10)   \;\;\;\;\;\;\;\; (0.10)   \;\;\;\;\;\;\;\; (0.07)    
+\end{split}
+\end{align}
+where heteroskedasticity-robust standard errors are given in parenthesis. His heteroskedasticity-robust LM-based tests for the hypothesis of no threshold effect are all far from usual rejection regions (the smallest p-value was 0.17).
+Using the same dataset, we carry out the following two exercises: (1) selecting relevant factors and (2) testing the linearity of the model.
+For the former, we 
+keep $y_{t-2}$ as $f_{1t}$ and add  $(y_{t-1}, y_{t-5})$ as $f_{2t}$. That is, we allow for the possibility that the regimes can be determined by a linear combination of $(y_{t-1}, y_{t-2}, y_{t-5})$. 
+The choice of $\lambda$ is important. Recall that we require $\lambda \rightarrow 0$ and $\lambda T \rightarrow \infty$. In this application,
+we set 
+\begin{align*}
+\lambda = \widehat{\sigma}_{\text{Hansen}}^2 \frac{\log T}{T},
+\end{align*}
+where $\widehat{\sigma}_{\text{Hansen}}^2 = T^{-1} \sum_{t=1}^T \widehat{\varepsilon}_t^2$ and the estimated residual $\widehat{\varepsilon}_t$
+is obtained from Hansen (1996)'s estimates in \eqref{hansen-estimates}.
+By implementing joint optimzation with this choice of $\lambda$, we select only $y_{t-5}$ but drop $y_{t-1}$ in $f_{2t}$. Our estimated index 
+is 
+\[
+f_t'\widehat{\gamma} = y_{t-2} - 0.90 y_{t-5}  + 0.40. 
+\]
+If we compare this with Hansen's estimate $f_t'\widehat{\gamma} =  y_{t-2} - 0.01$, we can see that in Hansen's model, the regime is determined by the level of GNP growth in $t-2$; but in our model, it is determined by $y_{t-2} - 0.9 y_{t-5}$, roughly speaking the changes in growth rates from $t-5$ to $t-2$. Specifically, the regime is determined whether $y_{t-2} - 0.9 y_{t-5}$ is  above or below $- 0.4$.  
+Our estimates suggest that a recession might be captured better by a decrease in growth rates from $t-5$ to $t-2$, compared to a low level of growth rates in $t-2$. Our estimated coefficients and their standard errors are as follows:
+\begin{align}\label{new-estimates}
+\begin{split}
+y_t &=  - 2.07 + 0.28 y_{t-1} - 0.33 y_{t-2} + 0.62 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} \leq -0.4$} \\
+      &   \;\;\;\;\;\; (1.33) \;\;\; (0.13)   \;\;\;\;\;\;\;\; (0.16)   \;\;\;\;\;\;\;\; (0.19)     \\
+y_t &=  2.76 + 0.35 y_{t-1} + 0.07 y_{t-2} - 0.21 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} > -0.4$.}  \\
+      &   \;\;\; (0.96) \;\;\; (0.12)   \;\;\;\;\;\;\;\; (0.12)   \;\;\;\;\;\;\;\; (0.10)    
+\end{split}
+\end{align}
+We now report the result of testing the null hypothesis of no threshold effect.  We take our estimates in \eqref{new-estimates} as unconstrained estimates. The resulting LR test statistic is 28.19 and the p-value is 0.056 based on 500 bootstrap replications. This implies that the null hypothesis is rejected at the 10\% level but not at the 5\% level. There are two main differences between our test result and Hansen (1996)'s result. We use the LR statistic, whereas Hansen (1996) consider the LM statistic. Furthermore, his alternative only allows for the scalar threshold variable $y_{t-2}$ but we consider a single index using $y_{t-2}$ and $y_{t-5}$. 
+
+
+\end{document}  

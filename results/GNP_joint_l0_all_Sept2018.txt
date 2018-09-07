@@ -1,0 +1,61 @@
+[1] "Estimation results using L2.y as the threshold variable (Hansen, 1996)"
+[1] "Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively"
+
+t test of coefficients:
+
+               Estimate Std. Error t value Pr(>|t|)   
+x.hansen.const  -3.2126     2.1205   -1.51   0.1317   
+x.hansen.L1.y    0.5128     0.2470    2.08   0.0395 * 
+x.hansen.L2.y   -0.9269     0.3083   -3.01   0.0031 **
+x.hansen.L5.y    0.3845     0.2461    1.56   0.1201   
+x.hansen.const   2.1419     0.7739    2.77   0.0063 **
+x.hansen.L1.y    0.3009     0.1013    2.97   0.0034 **
+x.hansen.L2.y    0.1848     0.1013    1.82   0.0699 . 
+x.hansen.L5.y   -0.1581     0.0734   -2.16   0.0326 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$bt.hat
+   bt_1    bt_2    bt_3    bt_4 
+-2.0730  0.2764 -0.3323  0.6162 
+
+$dt.hat
+dt.tilde_1 dt.tilde_2 dt.tilde_3 dt.tilde_4 
+   4.83747    0.06986    0.40684   -0.82696 
+
+$gm.hat
+   gm_1    gm_2    gm_3    gm_4 
+ 1.0000  0.0000 -0.9657 -0.5108 
+
+$objval
+[1] 13.77
+
+[1] "Beta est."
+  bt_1   bt_2   bt_3   bt_4 
+-2.073  0.276 -0.332  0.616 
+[1] "Delta est."
+dt.tilde_1 dt.tilde_2 dt.tilde_3 dt.tilde_4 
+    4.8375     0.0699     0.4068    -0.8270 
+[1] "Gamma est."
+  gm_1   gm_2   gm_3   gm_4 
+ 1.000  0.000 -0.966 -0.511 
+[1] "Estimation results with a vector of possible factors"
+[1] "Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)   
+x.est.const  -2.0730     1.3266   -1.56   0.1201   
+x.est.L1.y    0.2764     0.1321    2.09   0.0379 * 
+x.est.L2.y   -0.3323     0.1607   -2.07   0.0402 * 
+x.est.L5.y    0.6162     0.1861    3.31   0.0011 **
+x.est.const   2.7644     0.9608    2.88   0.0046 **
+x.est.L1.y    0.3463     0.1174    2.95   0.0036 **
+x.est.L2.y    0.0745     0.1208    0.62   0.5384   
+x.est.L5.y   -0.2107     0.0968   -2.18   0.0310 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "sigmahat (Hansen) -- sigmahat (Est.)"
+[1] 13.9 13.4
+Runtime     = 55.7 sec 
