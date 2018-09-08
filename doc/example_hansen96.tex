@@ -21,9 +21,9 @@ Hansen (1996) use annualized quarterly growth rates, say $y_t$, for the period 1
 His estimates are as follows:
 \begin{align}\label{hansen-estimates}
 \begin{split}
-y_t &=  - 3.21 + 0.51 y_{t-1} - 0.93 y_{t-2} - 0.38 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} \leq 0.01$} \\
+y_t &=  - 3.21 + 0.51 y_{t-1} - 0.93 y_{t-2} - 0.38 y_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} \leq 0.01$} \\
       &   \;\;\;\;\;\; (2.12) \;\;\; (0.25)   \;\;\;\;\;\;\;\; (0.31)   \;\;\;\;\;\;\;\; (0.25)     \\
-y_t &=  2.14 + 0.30 y_{t-1} + 0.18 y_{t-2} - 0.16 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} > 0.01$,}  \\
+y_t &=  2.14 + 0.30 y_{t-1} + 0.18 y_{t-2} - 0.16 y_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} > 0.01$,}  \\
       &   \;\;\; (0.77) \;\;\; (0.10)   \;\;\;\;\;\;\;\; (0.10)   \;\;\;\;\;\;\;\; (0.07)    
 \end{split}
 \end{align}
@@ -47,13 +47,13 @@ If we compare this with Hansen's estimate $f_t'\widehat{\gamma} =  y_{t-2} - 0.0
 Our estimates suggest that a recession might be captured better by a decrease in growth rates from $t-5$ to $t-2$, compared to a low level of growth rates in $t-2$. Our estimated coefficients and their standard errors are as follows:
 \begin{align}\label{new-estimates}
 \begin{split}
-y_t &=  - 2.07 + 0.28 y_{t-1} - 0.33 y_{t-2} + 0.62 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} \leq -0.4$} \\
+y_t &=  - 2.07 + 0.28 y_{t-1} - 0.33 y_{t-2} + 0.62 y_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} \leq -0.4$} \\
       &   \;\;\;\;\;\; (1.33) \;\;\; (0.13)   \;\;\;\;\;\;\;\; (0.16)   \;\;\;\;\;\;\;\; (0.19)     \\
-y_t &=  2.76 + 0.35 y_{t-1} + 0.07 y_{t-2} - 0.21 x_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} > -0.4$.}  \\
+y_t &=  2.76 + 0.35 y_{t-1} + 0.07 y_{t-2} - 0.21 y_{t-5} + \widehat{\varepsilon}_t    \;\;\;\; \text{if $y_{t-2} - 0.9 y_{t-5} > -0.4$.}  \\
       &   \;\;\; (0.96) \;\;\; (0.12)   \;\;\;\;\;\;\;\; (0.12)   \;\;\;\;\;\;\;\; (0.10)    
 \end{split}
 \end{align}
-We now report the result of testing the null hypothesis of no threshold effect.  We take our estimates in \eqref{new-estimates} as unconstrained estimates. The resulting LR test statistic is 28.19 and the p-value is 0.056 based on 500 bootstrap replications. This implies that the null hypothesis is rejected at the 10\% level but not at the 5\% level. There are two main differences between our test result and Hansen (1996)'s result. We use the LR statistic, whereas Hansen (1996) consider the LM statistic. Furthermore, his alternative only allows for the scalar threshold variable $y_{t-2}$ but we consider a single index using $y_{t-2}$ and $y_{t-5}$. 
+We now report the result of testing the null hypothesis of no threshold effect.  We take our estimates in \eqref{new-estimates} as unconstrained estimates. The resulting LR test statistic is 28.19 and the p-value is 0.056 based on 500 bootstrap replications. This implies that the null hypothesis is rejected at the 10\% level but not at the 5\% level. There are two main differences between our test result and Hansen (1996)'s result. We use the LR statistic, whereas Hansen (1996) considers the LM statistic. Furthermore, his alternative only allows for the scalar threshold variable $y_{t-2}$ but we consider a single index using $y_{t-2}$ and $y_{t-5}$. 
 
 
 \end{document}  
