@@ -1,18 +1,20 @@
 # Factor-driven two-regime regression
-# An empirical example for variable selection based on Hansen (1996, Econometrica)
-# 
+# An empirical exmple based on Hansen (1997)
+#
 # Last Update
-#   2018-09-07 by Simon Lee  
+#   2018-09-11 by Simon Lee  
+# Part of Bruce Hansen's R codes are used. 
+# We thank him for posting his replication files on his web page.  
 
 rm(list=ls())
+sink()
 
 setwd("~/Dropbox/HPC/Rprg/fadtwo_examples")
 
+library('ggplot2')
 library('lmtest')
 library('sandwich')
 source('src/lib_fadtwo.R')
-
-
 
 # ------------------------------------------------------------------------------------
 # 
@@ -20,18 +22,15 @@ source('src/lib_fadtwo.R')
 #
 #-------------------------------------------------------------------------------------
 
-# Data selection
-selection_data = 'hansen' # 'hansen' or 'potter'
-
 
 # Model selection
-selection_method = 'l0' # 'l0' or 'no-selection'
+selection_method = 'no-selection' # 'l0' or 'no-selection'
 
 # Estimation algorithm
-method = 'iter' # 'joint' or 'iter'
+method = 'joint' # 'joint' or 'iter'
 
 # Number of additional factors
-no_factors = 'all' # 'L5' or 'all'
+no_factors = 'pca' # 'pca', 'hansen', or 'all'
 
 # Maximum iterations if method is 'iter'
 K.bar = 2
@@ -57,8 +56,9 @@ tau1 = 0.15
 tau2 = 0.85
 
 # Number of lags in the regressor part
-n.lags=5                                    
+n.lags=12                                    
 
+                    
 
 # Specifiying the seed
 set.seed(45462)
@@ -69,30 +69,79 @@ set.seed(45462)
 #-------------------------------------------------------------------------------------
 
 
-# Read Data
-if (selection_data == 'hansen'){
-      gnp <- read.table("data/gnp.dat")  # 47:01-90:03 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
-     lgnp <- log(gnp[,1])
-       yg <- (lgnp[2:175]-lgnp[1:174])*400 # Annual GNP growth in percentage 47:02-90:03
-       yg <- ts(yg, start=c(1947,2), end=c(1990,3), frequency=4)
-    n.obs <- length(yg)
-}
-if (selection_data == 'potter'){
-  gnp <- read.table("data/potter.dat")  # 47:01-90:04 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
-  lgnp <- log(gnp[,2])
-  yg <- (lgnp[2:176]-lgnp[1:175])*400 # Annual GNP growth in percentage 47:02-90:03
-  yg <- ts(yg, start=c(1947,2), end=c(1990,4), frequency=4)
-  n.obs <- length(yg)
-}
+omit <- 0         # lags omitted from autoregression, if all included set omit=0       
+name <- "UR"      # name of series                
+p <- 12           # autoregressive order   
 
+
+# Load Data into vector y #
+u <- read.table("data/LHMU-sample.dat")
+c <- read.table("data/LHMC-sample.dat")
+factor1 <- read.table("data/factor1-sample.dat")
+factor2 <- read.table("data/factor2-sample.dat")
+u <- as.matrix(u)
+c <- as.matrix(c)
+factor1 <- as.matrix(factor1)
+factor2 <- as.matrix(factor2)
+s1 <- 3
+n <- nrow(u)
+y <- as.matrix((u[s1:n]/c[s1:n])*100)
+factor1 <- factor1[s1:n]
+factor2 <- factor2[s1:n]
+n <- nrow(y)
+
+# Taking First Differences #
+dy <- as.matrix(y[2:n]-y[1:(n-1)])
+factor1 <- factor1[1:(n-1)]
+factor2 <- factor2[1:(n-1)]
+
+# Create data matrix (lags, etc) #
+
+n <- nrow(dy)
+
+dat <- dy[(1+p):n]
+factor1 <- factor1[(1+p):n]
+factor2 <- factor2[(1+p):n]
+
+names <- name
+for (j in 1:p){
+  if (sum(omit==j)==0){
+    dat <- cbind(dat,dy[(1+p-j):(n-j)])
+    if (j<10){ pn <- paste(c("0"),j,sep="")
+    }else{ pn <- as.character(j)}
+    namej <- paste(c("DY(t-"),pn,c(")"),sep="")
+    names <- rbind(names,namej)    
+  }  
+}
+xi <- seq(2,ncol(dat),by=1)
+d <- 12
+q <- y[(p+1):n] - y[(p+1-d):(n-d)]
+dat = cbind(dat,q)
+if (d<10) { pn <- paste(c("0"),d,sep="")
+}else{ pn <- as.character(d)}
+namej <- paste(c("Y*(t-"),pn,c(")"),sep="")
+names <- rbind(names,namej)    
+
+
+
+##############################################################
+
+qi = ncol(dat)
+
+hansen_factor = dat[,qi]
+  
 # dependent variable 
-y = yg[-(1:n.lags)]     
+y = dat[,1]  
+y = ts(y, start=c(1961,4), end=c(1996,7), frequency=12)   # 424 monthly observations from 1961.04 to 1886.07
 dat.year <- time(y)  
+
 # regressors
-x = cbind(1, yg[(n.lags):(n.obs-1)],  yg[(n.lags-1):(n.obs-2)], yg[1:(n.obs-n.lags)])
-colnames(x) = c('.const','.L1.y','.L2.y','.L5.y')
+
+x = cbind(1,dat[,xi]) 
+
+
 # Number of observations
-n = nrow(x)
+n.obs = nrow(x)
 # Number of covariates, dim(x)
 d.x = ncol(x)
 #-----------------------------------------------------------------------------------------------------------------------------
@@ -102,13 +151,13 @@ d.x = ncol(x)
 #-----------------------------------------------------------------------------------------------------------------------------
 
 if (no_factors == 'all'){
-f = cbind(x[,3], x[,2], x[,4], -1)
+f = cbind(hansen_factor, factor1, -1)
 }
-if (no_factors == 'L5'){
-f = cbind(x[,3], x[,4], -1)
+if (no_factors == 'hansen'){
+f = cbind(hansen_factor, -1)
 }
-if (no_factors == 'no'){
-f = cbind(x[,3], -1)
+if (no_factors == 'pca'){
+f = cbind(factor1, -1)
 }
 
 # Number of factors, dim(f)
@@ -117,26 +166,26 @@ d.f = ncol(f)
 # Decomposition of factors 
 f1=as.matrix(f[,1])
 if ((d.f > 2) && (selection_method == 'l0')){
-f2=as.matrix(f[,(2:(d.f-1))])
+f2=as.matrix(f[,2:(d.f-1)])
 p = ncol(f2)  
 }
 
-# Run threshold regression with state = 1(L2.y >= 0.0125721)
-    state.hansen = (f1 > 0.0125721)
+# Run threshold regression with state = 1(y_{t-1} - y_{t-12}  >= 0.3020402)
+    state.hansen = (hansen_factor > 0.3020402)
         x.hansen = cbind(x*as.numeric(1-state.hansen), x*as.numeric(state.hansen))
-      reg.hansen = lm(y~x.hansen-1)     
+      reg.hansen = lm(y~x.hansen-1)
  sigmahat.hansen = mean((y-fitted.values(reg.hansen))^2)
 inference.hansen = coeftest(reg.hansen, vcov = vcovHC(reg.hansen, type = "HC3"))
 
-output_text_file_name <- paste("results/GNP", method, selection_method, no_factors, "Sept2018.txt", sep = "_")
+output_text_file_name <- paste("results/UR", method, selection_method, no_factors, "Sept2018.txt", sep = "_")
 sink(file = output_text_file_name, append = FALSE)
 options(digits=3)
 
-print("Estimation results using L2.y as the threshold variable (Hansen, 1996)")
-print("Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively")
+print("Estimation results using (L1.y-L.12) as the threshold variable (Hansen, 1997)")
+print("Coefficients are shown for two states (f1 < 0.3020402)) and (f1 > 0.3020402)), respectively")
 print(inference.hansen)
 
-sink()    
+sink()        
 
 #-----------------------------------------------------------------------------------------------------------------------------
 #
@@ -155,17 +204,20 @@ Bnd.Const = 20
  L.gm = c(1,rep(-Bnd.Const,d.f-1))
  U.gm = c(1,rep(Bnd.Const,d.f-1)) 
 
+ 
+ L.gm1 = c(1)
+ U.gm1 = c(1)
+ 
+ L.gm2 = c(rep(-Bnd.Const,p))
+ U.gm2 = c(rep(Bnd.Const,p))
+ 
+ L.gm3 = -Bnd.Const
+ U.gm3 = Bnd.Const  
+ 
+ 
+ if ((d.f > 2) && (selection_method == 'l0')){
 
-if ((d.f > 2) && (selection_method == 'l0')){
 
-L.gm1 = c(1)
-U.gm1 = c(1)
-
-L.gm2 = c(rep(-Bnd.Const,p))
-U.gm2 = c(rep(Bnd.Const,p))
-
-L.gm3 = -Bnd.Const
-U.gm3 = Bnd.Const
 
 L.p = 0
 U.p = p
@@ -207,11 +259,8 @@ if (grid.type == 'fixed'){
 
 sink(file = output_text_file_name, append = TRUE)
 options(digits=4)
-
 print(est.out)
-
-sink()    
-
+sink()
 
 #-----------------------------------------------------------------------------------------------------------
 #
@@ -250,6 +299,58 @@ print(inference.est)
 print("sigmahat (Hansen) -- sigmahat (Est.)")
 print(c(sigmahat.hansen, sigmahat.est))
 
+
+# Load NBER recession data #
+        nber = read.table("data/nber.dat")
+        nber = ts(nber, start=c(1961,4), end=c(1996,7), frequency=12)   # 424 monthly observations from 1961.04 to 1886.07
+  state.nber = (nber == 1)
+match.hansen = 1-mean(abs(nber-as.numeric(state.hansen)))
+   match.est = 1-mean(abs(nber-as.numeric(state.est)))
+
+
+print("Proportion of matches between NBER and Hansen")
+print(match.hansen)
+
+print("Proportion of matches between NBER and our estimates")
+print(match.est)
+
+sink()
+
+
+
+#-----------------------------------------------------------------------------------------------------------
+#
+# Graphical analysis
+#
+#----------------------------------------------------------------------------------------------------------
+
+
+state.set = c('hansen','est','nber')
+
+for (j_index in 1:3){
+  if (state.set[j_index] == 'hansen'){state.y = state.hansen
+  }
+  if (state.set[j_index] == 'est'){state.y = state.est  
+  }
+  if (state.set[j_index] == 'nber'){state.y = state.nber  
+  }
+  
+  # Draw different states on GNP
+  u_figure_text_file_name <- paste("results/UR", state.set[j_index], method, selection_method, no_factors, "July2018.pdf", sep = "_")
+  pdf(file=u_figure_text_file_name)
+  recess = ggplot(data.frame(y, dat.year))+
+    geom_line(mapping=aes_string(x="dat.year", y="y"))+
+    annotate("rect", fill = "blue", alpha = 0.2, 
+             xmin = dat.year[state.y], xmax = dat.year[state.y]+0.1,
+             ymin = -Inf, ymax = Inf) +
+    xlab('Year') +
+    ylab('Unemployment Rates')
+  print(recess)
+  dev.off()
+}
+
+
+sink(file = output_text_file_name, append = TRUE)
 
 time.end = proc.time()[3]
 runtime = time.end - time.start
