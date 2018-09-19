@@ -1244,3 +1244,126 @@ gen_grid = function(option.grid, width=NULL, n.total=NULL, L.grid, U.grid){
   grid.points = as.matrix(grid.points)
   return(grid.points)
 }
+
+
+# test.linearity: Testing the null hypothesis of no threshold effect
+# 
+# Last Update: 2018-09-18
+#
+# Input: 
+#       y: dependent variable
+#       x: regressros (including a constant term)
+#       f: factors
+#       bt.hat: estimates of beta
+#       dt.hat: estimates of delta
+#       gm.hat: estimates of gamma
+#       eta: tolerence rate for zero 
+#       n_bootstrap: the number of bootstraps
+#       method: 'joint' or 'iter'
+#       L.bt, U.bt, L.dt, U.dt, L.gm, U.gm: lower and upper bounds for beta, delta, and gamma
+#       tau1, tau2: 
+#       grid: grid for the iterative method
+#       max.iter: the maximum number of iterations
+#
+# Output:
+#       test.statistic
+#       p.value
+#       n_bootstrap
+#
+
+
+test.linearity <- function(y,x,f,bt.hat,dt.hat,gm.hat,eta,n_bootstrap,method,L.bt,U.bt,L.dt,U.dt,L.gm,U.gm,tau1,tau2,grid,max.iter){
+  #-----------------------------------------------------------------------------------------------------------
+  #
+  # Post Estimation Analysis
+  #
+  #----------------------------------------------------------------------------------------------------------
+  
+  # Run threshold regression with the estimated state
+  state.est = (f %*% gm.hat >= eta*.99)
+  x.est = cbind(x*as.numeric(1-state.est), x*as.numeric(state.est))
+  reg.est = lm(y~x.est-1)
+  resid.est = resid(reg.est)
+  sigmahat.est = mean(resid.est^2)
+  
+  print("sigmahat (Est.)")
+  print(sigmahat.est)
+  
+  #-----------------------------------------------------------------------------------------------------------
+  #
+  # Testing Linearity 
+  #
+  #----------------------------------------------------------------------------------------------------------
+  
+  # Constrained Estimation  
+  n = length(y)
+  reg.constrained = lm(y~x-1)
+  constrained = mean((residuals(reg.constrained))^2)    
+  test.statistic = n*(constrained - sigmahat.est)/sigmahat.est  
+  print("Test statistic")
+  print(test.statistic)
+  
+  
+  ### Bootstrap ###         
+  
+  results_bootstrap <- matrix(0, nrow = n_bootstrap, ncol = 1)         
+  
+  for (bb in 1:n_bootstrap){      
+    
+    bm_norm <- rnorm(n, mean = 0, sd = 1)
+    
+    y_star <- x%*%bt.hat + bm_norm*resid.est
+    
+    # Joint Estimation Algorithm
+    if (method == 'joint') {
+      
+      b.est.out=fadtwo(y=y_star,x=x,f=f,method='joint',L.bt=L.bt,U.bt=U.bt,L.dt=L.dt,U.dt=U.dt,L.gm=L.gm,U.gm=U.gm,tau1=tau1,tau2=tau2)
+      
+    }  
+    
+    # Iterative Estimation Algorithm
+    if (method == 'iter'){
+      
+      b.est.out=fadtwo(y=y_star,x=x,f=f,method='iter',L.gm=L.gm,U.gm=U.gm,tau1=tau1,tau2=tau2,grid=grid,max.iter=K.bar)
+      
+    }
+    
+    # Save the estimates
+    
+    gm.b = b.est.out$gm.hat
+    state.b = (f %*% gm.b >= eta*.99)
+    x.b = cbind(x*as.numeric(1-state.b), x*as.numeric(state.b))
+    reg.b = lm(y_star~x.b-1)
+    unconstrained.b = mean((resid(reg.b))^2)  
+    
+    
+    # Constrained Estimation  
+    
+    reg.constrained.b = lm(y_star~x-1)
+    constrained.b = mean((y_star-fitted.values(reg.constrained.b))^2)    
+    test.statistic.b = n*(constrained.b - unconstrained.b)/unconstrained.b  
+    
+    results_bootstrap[bb,1] <- test.statistic.b
+    
+  }
+  
+  
+  p.value <- mean(test.statistic < results_bootstrap)
+  
+  options(digits=4)
+  
+  print("Testing Linearity")
+  print("number of bootstrap replications")
+  print(n_bootstrap)
+  
+  print("Constrained -- Unconstrained")
+  print(c(constrained, sigmahat.est))
+  
+  print("Test Statistic")
+  print(test.statistic)
+  
+  print("p-value")
+  print(p.value)
+  
+  return(list(test.statistic=test.statistic, p.value=p.value, n_bootstrap=n_bootstrap)) 
+}
