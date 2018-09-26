@@ -33,7 +33,7 @@ set.seed(325618)
 
 d.x = 1
 d.f = 2
-n.rep = 1000
+n.rep = 100
 
 L.bt = rep(-3,d.x)
 U.bt = rep(3,d.x)
@@ -112,6 +112,9 @@ for (i.T in c(200,300,400,500)){
   table3[14,paste('T=',i.T,sep='')] = round(mean(abs(result[,4]-result[,6])<=eta),2)
 }
 
+sink(file='../results/table3.txt')
+print(table3)
+sink()
 
 save.image(file=paste("o-sim-table3.Rdata",sep=''))
 

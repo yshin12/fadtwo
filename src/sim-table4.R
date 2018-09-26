@@ -113,6 +113,9 @@ for (i.d.x in c(1:4)){
   table4[14,paste('d_x=',i.d.x,sep='')] = round(mean(abs(result[,4]-result[,6])<=eta),2)
 }
 
+sink(file='../results/table4.txt')
+print(table4)
+sink()
 
 save.image(file=paste("o-sim-table4.Rdata",sep=''))
 

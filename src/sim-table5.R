@@ -111,5 +111,9 @@ for (i.d.f in c(2:5)){
   
 }
 
+sink(file='../results/table5.txt')
+print(table5)
+sink()
+
 save.image(file=paste("o-sim-table5.Rdata",sep=''))
 
