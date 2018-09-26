@@ -1,0 +1,33 @@
+[1] "Table 1 - Part 1 - MB, RMSE, Coverage"
+   scenarios par.names mb.bt.o rmse.bt.o coverage1.o
+1          1    beta_1 -0.0025    0.0427       0.948
+2          1    beta_2  0.0016    0.0383       0.948
+3          1   delta_1  0.0011    0.0749       0.962
+4          1   delta_2 -0.0041    0.0675       0.960
+5          2    beta_1 -0.0033    0.0430       0.943
+6          2    beta_2  0.0013    0.0384       0.941
+7          2   delta_1  0.0041    0.0759       0.956
+8          2   delta_2 -0.0029    0.0682       0.955
+9          2   theta_2 -0.0016    0.0649          NA
+10         2   theta_4 -0.0010    0.0496          NA
+11         3    beta_1 -0.0034    0.0431       0.942
+12         3    beta_2  0.0013    0.0385       0.942
+13         3   delta_1  0.0044    0.0759       0.956
+14         3   delta_2 -0.0029    0.0682       0.955
+15         3   theta_2 -0.0025    0.0639          NA
+16         3   theta_3 -0.0003    0.0182          NA
+17         3   theta_4 -0.0013    0.0511          NA
+18         4    beta_1 -0.0002    0.0435       0.945
+19         4    beta_2  0.0032    0.0390       0.943
+20         4   delta_1 -0.0063    0.0796       0.954
+21         4   delta_2 -0.0086    0.0700       0.960
+22         4   gamma_2  0.0234    0.5239          NA
+23         4   gamma_3 -0.0100    0.5240          NA
+24         4   gamma_4 -0.0060    0.3968          NA
+
+ 
+[1] "Table 1 - Part 2 - Regime Prediction"
+  scenario2 Ave. Cor. Regime Predictions   s.d. Correct Factor Selection
+1         2                        0.993 0.0075                       NA
+2         3                       0.9927 0.0079                    0.975
+3         4                       0.9799 0.0124                       NA
