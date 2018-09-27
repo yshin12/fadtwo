@@ -1,14 +1,13 @@
 # fadtwo (FActor-Driven TWO-regime regressions)
 
-Last update: 2018-02-22
+Last update: 2018-09-27
 
-There are two codes:
-
-  (1) lib_fadtwo.R - the collection of all functions required for estimating the model 
-                     
-                     model selection is added (2018-02-22)
-  
-  (2) example_fadtwo.R - an example code for estimating the model without model selection
+Folder <src> contains all source files
+	lib_fadtwo.R - the collection of all R-functions required for estimating the model 
+        sim-table1.R - generate Table 1 of LLSS (2018)
+		output: ../results/table1.txt
+			../results/o-sim-table1.RData
+		
   
   (3) example_selection_joint.R - an example code for model selection using the joint algorithm
   

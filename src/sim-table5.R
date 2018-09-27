@@ -115,5 +115,5 @@ sink(file='../results/table5.txt')
 print(table5)
 sink()
 
-save.image(file=paste("o-sim-table5.Rdata",sep=''))
+save.image(file=paste("../results/o-sim-table5.RData",sep=''))
 

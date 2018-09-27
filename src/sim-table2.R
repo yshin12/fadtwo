@@ -331,7 +331,7 @@ sink()
 
 
 
-save.image(paste('o-sim-table2.RData',sep=''))
+save.image(paste('../results/o-sim-table2.RData',sep=''))
 
 
 
