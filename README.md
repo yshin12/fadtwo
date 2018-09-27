@@ -14,3 +14,5 @@ Folder **src** contains the following source files:
 * sim-table3.R
 * sim-table4.R
 * sim-table5.R
+
+sim-table2.R -- sim-table5.R have the same structure with sim-table1.R.
