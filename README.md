@@ -15,6 +15,7 @@ Last update: 2018-09-27
 * sim-table4.R
 * sim-table5.R
 
-sim-table2.R -- sim-table5.R have the same structure with sim-table1.R.
+Note that sim-table2.R -- sim-table5.R have the same structure with sim-table1.R.
 
 ##### _results_ folder contains the results of all codes in the _src_ folder
+
