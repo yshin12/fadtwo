@@ -1,0 +1,10 @@
+   Statistic         Method d_g=2 d_g=3 d_g=4   d_g=5
+1        Min Iter(zeta=1.0)  1.45  1.48  1.75    3.18
+2        Min          Joint  1.85  2.04  4.37   83.43
+3     Median Iter(zeta=1.0)  1.47  1.55  1.91    3.38
+4     Median          Joint  1.90  2.17  6.42  342.76
+5       Mean Iter(zeta=1.0)  1.48  1.55  1.92    3.39
+6       Mean          Joint  1.91  2.18  6.54  395.14
+7        Max Iter(zeta=1.0)  1.56  1.62  2.13    3.80
+8        Max          Joint  2.11  2.37  9.40 1443.75
+9 Conv. Rate Iter(zeta=1.0)  0.93  0.93  0.94    0.91
