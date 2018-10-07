@@ -2,7 +2,7 @@
 
 Last update: 2018-10-07
 
-#### _<src>_ folder contains the following source files:
+#### _src_ folder contains the following source files:
 * lib_fadtwo.R: the collection of all R-functions required for estimating the model 
 * sim-table1.R: simulation; generate Table 1 of LLSS (2018) 
 * sim-table2.R: simluation; generate Table 2 of LLSS (2018)
