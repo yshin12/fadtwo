@@ -1,8 +1,6 @@
 # fadtwo (FActor-Driven TWO-regime regressions)
 
-Last update: 2018-09-27
-
-#### _results_ folder contains the results of all codes in the _src_ folder
+Last update: 2018-10-07
 
 #### _src_ folder contains the following source files:
 * lib_fadtwo.R: the collection of all R-functions required for estimating the model 
@@ -16,5 +14,7 @@ Last update: 2018-09-27
 * app2-section-9-2-pca.R: application in Section 9.2. Factor: {hansen} or {pca}
 * app2-section-9-2-all.R: application in Section 9.2. Factors: {hansen, pca}
 
+#### _results_ folder contains the results of all codes in the _src_ folder
 
+#### _data_ folder contains the data sets required for the applications in Section 9
 
