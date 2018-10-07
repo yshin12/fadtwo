@@ -140,7 +140,7 @@ cat("Equation (9.1) \n")
 cat("Estimation results using L2.y as the threshold variable (Hansen, 1996) \n \n")
 cat("Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively \n \n")
 print.table(round(inference.hansen,2))
-cat("-------------------------------------------------------------------------------------\n")
+cat("------------------------------------------------------------------------------------- \n \n")
 
 sink()    
 
@@ -212,13 +212,6 @@ if (grid.type == 'fixed'){
 }
 }
 
-#sink(file = output_text_file_name, append = TRUE)
-#options(digits=4)
-
-#print(est.out)
-
-#sink()    
-
 
 #-----------------------------------------------------------------------------------------------------------
 #
@@ -242,21 +235,16 @@ inference.est = coeftest(reg.est, vcov = vcovHC(reg.est, type = "HC3"))
 sink(file = output_text_file_name, append = TRUE)
 options(digits=3)
 
-cat("Beta est. \n")
-cat(round(bt.hat,2),'\n')
-cat("Delta est. \n")
-cat(round(dt.hat,2),'\n')
-cat("Delta est. - Beta est. (Regime 2 coef) \n")
-cat(round(dt.hat+bt.hat,2),'\n')
-cat("Gamma est. \n")
-cat(round(gm.hat,2),'\n')
 
+cat("------------------------------------------------------------------------------------- \n")
 cat("Estimation results with a vector of possible factors \n")
 cat("Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively \n")
-print.table(inference.est)
+print.table(round(inference.est,2))
 
 cat("sigmahat (Hansen) -- sigmahat (Est.) \n")
 print(c(sigmahat.hansen, sigmahat.est))
+cat("------------------------------------------------------------------------------------- \n \n")
+
 sink()  
 
 #-----------------------------------------------------------------------------------------------------------
@@ -321,19 +309,13 @@ p.value <- mean(test.statistic < results_bootstrap)
 sink(file = output_text_file_name, append = TRUE)
 options(digits=4)
 
+cat("------------------------------------------------------------------------------------- \n")
 cat("Testing Linearity \n")
-cat("number of bootstrap replications \n")
-print(n_bootstrap)
-
-cat("Constrained -- Unconstrained \n")
-print(c(constrained, sigmahat.est))
-
-cat("Test Statistic \n")
-print(test.statistic)
-
-cat("p-value \n")
-print(p.value)
-
+cat("number of bootstrap replications = ", n_bootstrap, "\n")
+cat("Constrained -- Unconstrained     =", constrained, "--", sigmahat.est, "\n")
+cat("Test Statistic                   =", test.statistic, "\n")
+cat("p-value                          = ",p.value, "\n")
+cat("------------------------------------------------------------------------------------- \n \n")
 
 time.end = proc.time()[3]
 runtime = time.end - time.start

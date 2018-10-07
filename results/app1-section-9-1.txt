@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------------
+Equation (9.1) 
+Estimation results using L2.y as the threshold variable (Hansen, 1996) 
+ 
+Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively 
+ 
+               Estimate Std. Error t value Pr(>|t|)
+x.hansen.const    -3.21       2.12   -1.51     0.13
+x.hansen.L1.y      0.51       0.25    2.08     0.04
+x.hansen.L2.y     -0.93       0.31   -3.01     0.00
+x.hansen.L5.y      0.38       0.25    1.56     0.12
+x.hansen.const     2.14       0.77    2.77     0.01
+x.hansen.L1.y      0.30       0.10    2.97     0.00
+x.hansen.L2.y      0.18       0.10    1.82     0.07
+x.hansen.L5.y     -0.16       0.07   -2.16     0.03
+------------------------------------------------------------------------------------- 
+ 
+------------------------------------------------------------------------------------- 
+Estimation results with a vector of possible factors 
+Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively 
+            Estimate Std. Error t value Pr(>|t|)
+x.est.const    -2.07       1.33   -1.56     0.12
+x.est.L1.y      0.28       0.13    2.09     0.04
+x.est.L2.y     -0.33       0.16   -2.07     0.04
+x.est.L5.y      0.62       0.19    3.31     0.00
+x.est.const     2.76       0.96    2.88     0.00
+x.est.L1.y      0.35       0.12    2.95     0.00
+x.est.L2.y      0.07       0.12    0.62     0.54
+x.est.L5.y     -0.21       0.10   -2.18     0.03
+sigmahat (Hansen) -- sigmahat (Est.) 
+[1] 13.9 13.4
+------------------------------------------------------------------------------------- 
+ 

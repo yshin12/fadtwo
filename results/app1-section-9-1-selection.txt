@@ -1,0 +1,19 @@
+------------------------------------------------------------ 
+Estimation results with a vector of possible factors 
+Gamma est. (model selection) =  1 0 -0.904 -0.401 
+Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively 
+            Estimate Std. Error  t value Pr(>|t|)
+x.est.const -2.07304    1.32661 -1.56267  0.12009
+x.est.L1.y   0.27642    0.13207  2.09292  0.03792
+x.est.L2.y  -0.33234    0.16066 -2.06866  0.04018
+x.est.L5.y   0.61622    0.18606  3.31192  0.00114
+x.est.const  2.76442    0.96080  2.87722  0.00456
+x.est.L1.y   0.34628    0.11735  2.95079  0.00364
+x.est.L2.y   0.07450    0.12083  0.61655  0.53840
+x.est.L5.y  -0.21074    0.09681 -2.17682  0.03095
+sigmahat (Hansen) -- sigmahat (Est.) 
+[1] 13.9 13.4
+------------------------------------------------------------ 
+ 
+Note: We reestimate the model with selected factors in the file named 'app1-section-9-1.R' 
+Runtime     = 36.9 sec 

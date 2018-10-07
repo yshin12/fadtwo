@@ -3,14 +3,14 @@
 # 
 # Last Update
 #   2018-09-07 by Simon Lee  
+#   2018-10-06
 
 rm(list=ls())
 
-setwd("~/Dropbox/HPC/Rprg/fadtwo_examples")
 
 library('lmtest')
 library('sandwich')
-source('src/lib_fadtwo.R')
+source('lib_fadtwo.R')
 
 
 
@@ -71,14 +71,14 @@ set.seed(45462)
 
 # Read Data
 if (selection_data == 'hansen'){
-      gnp <- read.table("data/gnp.dat")  # 47:01-90:03 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
+      gnp <- read.table("../data/gnp.dat")  # 47:01-90:03 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
      lgnp <- log(gnp[,1])
        yg <- (lgnp[2:175]-lgnp[1:174])*400 # Annual GNP growth in percentage 47:02-90:03
        yg <- ts(yg, start=c(1947,2), end=c(1990,3), frequency=4)
     n.obs <- length(yg)
 }
 if (selection_data == 'potter'){
-  gnp <- read.table("data/potter.dat")  # 47:01-90:04 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
+  gnp <- read.table("../data/potter.dat")  # 47:01-90:04 (Potter's data includes obs. for 90:04 but Hansen's data excludes it)
   lgnp <- log(gnp[,2])
   yg <- (lgnp[2:176]-lgnp[1:175])*400 # Annual GNP growth in percentage 47:02-90:03
   yg <- ts(yg, start=c(1947,2), end=c(1990,4), frequency=4)
@@ -128,13 +128,13 @@ p = ncol(f2)
  sigmahat.hansen = mean((y-fitted.values(reg.hansen))^2)
 inference.hansen = coeftest(reg.hansen, vcov = vcovHC(reg.hansen, type = "HC3"))
 
-output_text_file_name <- paste("results/GNP", method, selection_method, no_factors, "Sept2018.txt", sep = "_")
+output_text_file_name <- "../results/app-section-9-1-selection.txt"
 sink(file = output_text_file_name, append = FALSE)
 options(digits=3)
 
 print("Estimation results using L2.y as the threshold variable (Hansen, 1996)")
 print("Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively")
-print(inference.hansen)
+print.table(inference.hansen)
 
 sink()    
 
@@ -236,18 +236,18 @@ inference.est = coeftest(reg.est, vcov = vcovHC(reg.est, type = "HC3"))
 sink(file = output_text_file_name, append = TRUE)
 options(digits=3)
 
-print("Beta est.")
-print(bt.hat)
-print("Delta est.")
-print(dt.hat)
-print("Gamma est.")
-print(gm.hat)
+cat("Beta est. \n")
+cat(bt.hat, '\n')
+cat("Delta est. \n")
+cat(dt.hat, '\n')
+cat("Gamma est. \n")
+cat(gm.hat, '\n')
 
-print("Estimation results with a vector of possible factors")
-print("Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively")
-print(inference.est)
+cat("Estimation results with a vector of possible factors \n")
+cat("Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively \n")
+print.table(inference.est)
 
-print("sigmahat (Hansen) -- sigmahat (Est.)")
+cat("sigmahat (Hansen) -- sigmahat (Est.) \n")
 print(c(sigmahat.hansen, sigmahat.est))
 
 

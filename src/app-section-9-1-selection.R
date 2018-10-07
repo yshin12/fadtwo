@@ -1,12 +1,12 @@
 # Factor-driven two-regime regression
-# An empirical example for testing linearity based on Hansen (1996, Econometrica)
-# Estimation results in Section 9.1
-#
+# An empirical example for variable selection based on Hansen (1996, Econometrica)
+# 
 # Last Update
 #   2018-09-07 by Simon Lee  
 #   2018-10-06
 
 rm(list=ls())
+
 
 library('lmtest')
 library('sandwich')
@@ -25,21 +25,21 @@ selection_data = 'hansen' # 'hansen' or 'potter'
 
 
 # Model selection
-selection_method = 'no-selection' # 'l0' or 'no-selection'
+selection_method = 'l0' # 'l0' or 'no-selection'
 
 # Estimation algorithm
 method = 'joint' # 'joint' or 'iter'
 
 # Number of additional factors
-no_factors = 'L5' # 'L5' or 'all'
+no_factors = 'all' # 'L5' or 'all'
 
 # Maximum iterations if method is 'iter'
 K.bar = 2
 
 # Tuning parameters for grid search
-grid.type = 'random' # 'fixed' or 'random'
+grid.type = 'fixed' # 'fixed' or 'random'
 zeta = 0.5
-grid.size = 10^4
+grid.size = 10^6
 
 # eta: the size of effective zero
 eta = 1e-6
@@ -59,9 +59,6 @@ tau2 = 0.85
 # Number of lags in the regressor part
 n.lags=5                                    
 
-# Number of bootstrap replications
-
-n_bootstrap <- 500
 
 # Specifiying the seed
 set.seed(45462)
@@ -131,18 +128,10 @@ p = ncol(f2)
  sigmahat.hansen = mean((y-fitted.values(reg.hansen))^2)
 inference.hansen = coeftest(reg.hansen, vcov = vcovHC(reg.hansen, type = "HC3"))
 
-output_text_file_name <- paste("../results/app1-section-9-1.txt", sep = "")
+output_text_file_name <- "../results/app1-section-9-1-selection.txt"
 sink(file = output_text_file_name, append = FALSE)
-options(digits=3)
+sink()
 
-cat("-------------------------------------------------------------------------------------\n")
-cat("Equation (9.1) \n")
-cat("Estimation results using L2.y as the threshold variable (Hansen, 1996) \n \n")
-cat("Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively \n \n")
-print.table(round(inference.hansen,2))
-cat("-------------------------------------------------------------------------------------\n")
-
-sink()    
 
 #-----------------------------------------------------------------------------------------------------------------------------
 #
@@ -161,10 +150,9 @@ Bnd.Const = 20
  L.gm = c(1,rep(-Bnd.Const,d.f-1))
  U.gm = c(1,rep(Bnd.Const,d.f-1)) 
 
- 
- 
- 
- if ((d.f > 2) && (selection_method == 'l0')){
+
+if ((d.f > 2) && (selection_method == 'l0')){
+
 L.gm1 = c(1)
 U.gm1 = c(1)
 
@@ -214,9 +202,7 @@ if (grid.type == 'fixed'){
 
 #sink(file = output_text_file_name, append = TRUE)
 #options(digits=4)
-
 #print(est.out)
-
 #sink()    
 
 
@@ -226,6 +212,7 @@ if (grid.type == 'fixed'){
 #
 #----------------------------------------------------------------------------------------------------------
 # Save the esitmates
+
 bt.hat = est.out$bt.hat
 dt.hat = est.out$dt.hat
 gm.hat = est.out$gm.hat
@@ -242,97 +229,25 @@ inference.est = coeftest(reg.est, vcov = vcovHC(reg.est, type = "HC3"))
 sink(file = output_text_file_name, append = TRUE)
 options(digits=3)
 
-cat("Beta est. \n")
-cat(round(bt.hat,2),'\n')
-cat("Delta est. \n")
-cat(round(dt.hat,2),'\n')
-cat("Delta est. - Beta est. (Regime 2 coef) \n")
-cat(round(dt.hat+bt.hat,2),'\n')
-cat("Gamma est. \n")
-cat(round(gm.hat,2),'\n')
+#cat("Beta est. \n")
+#cat(bt.hat, '\n')
+#cat("Delta est. \n")
+#cat(dt.hat, '\n')
+#cat("Delta est. - Beta est. (Regime 2 coef) \n")
+#cat(round(dt.hat+bt.hat,2),'\n')
+#cat("Gamma est. \n")
+#cat(gm.hat, '\n')
 
+cat("------------------------------------------------------------ \n")
 cat("Estimation results with a vector of possible factors \n")
+cat("Gamma est. (model selection) = ", gm.hat, '\n')
 cat("Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively \n")
 print.table(inference.est)
 
 cat("sigmahat (Hansen) -- sigmahat (Est.) \n")
 print(c(sigmahat.hansen, sigmahat.est))
-sink()  
-
-#-----------------------------------------------------------------------------------------------------------
-#
-# Testing Linearity 
-#
-#----------------------------------------------------------------------------------------------------------
-
-# Constrained Estimation  
-
-reg.constrained = lm(y~x-1)
-constrained = mean((residuals(reg.constrained))^2)    
-test.statistic = n*(constrained - sigmahat.est)/sigmahat.est  
-
-### Bootstrap ###         
-
-results_bootstrap <- matrix(0, nrow = n_bootstrap, ncol = 1)         
-
-for (bb in 1:n_bootstrap){      
-  
-  bm_norm <- rnorm(n, mean = 0, sd = 1)
-  
-  y_star <- x%*%bt.hat + bm_norm*resid.est
-  
-  # Joint Estimation Algorithm
-  if (method == 'joint') {
-    
-    b.est.out=fadtwo(y=y_star,x=x,f=f,method='joint',L.bt=L.bt,U.bt=U.bt,L.dt=L.dt,U.dt=U.dt,L.gm=L.gm,U.gm=U.gm,tau1=tau1,tau2=tau2)
-    
-  }  
-  
-  # Iterative Estimation Algorithm
-  if (method == 'iter'){
-    
-    b.est.out=fadtwo(y=y_star,x=x,f=f,method='iter',L.gm=L.gm,U.gm=U.gm,tau1=tau1,tau2=tau2,grid=grid,max.iter=K.bar)
-    
-  }
-  
-  # Save the estimates
-  
-  gm.b = b.est.out$gm.hat
-  state.b = (f %*% gm.b >= eta*.99)
-  x.b = cbind(x*as.numeric(1-state.b), x*as.numeric(state.b))
-  reg.b = lm(y_star~x.b-1)
-  unconstrained.b = mean((y_star-fitted.values(reg.b))^2)  
-  
-  
-  # Constrained Estimation  
-  
-  reg.constrained.b = lm(y_star~x-1)
-  constrained.b = mean((y_star-fitted.values(reg.constrained.b))^2)    
-  test.statistic.b = n*(constrained.b - unconstrained.b)/unconstrained.b  
-  
-  results_bootstrap[bb,1] <- test.statistic.b
-  
-}
-
-
-p.value <- mean(test.statistic < results_bootstrap)
-
-
-sink(file = output_text_file_name, append = TRUE)
-options(digits=4)
-
-cat("Testing Linearity \n")
-cat("number of bootstrap replications \n")
-print(n_bootstrap)
-
-cat("Constrained -- Unconstrained \n")
-print(c(constrained, sigmahat.est))
-
-cat("Test Statistic \n")
-print(test.statistic)
-
-cat("p-value \n")
-print(p.value)
+cat("------------------------------------------------------------ \n \n")
+cat("Note: We reestimate the model with selected factors in the file named \'app1-section-9-1.R\'","\n")
 
 
 time.end = proc.time()[3]
@@ -340,4 +255,4 @@ runtime = time.end - time.start
 cat('Runtime     =', runtime, 'sec','\n')  
 sink()  
 
-save.image(file="..\results\app1-section-9-1.RData")
+save.image(file="../results/app1-section-9-1-selection.RData")

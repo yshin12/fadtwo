@@ -42250,3 +42250,1447 @@ Solution count 6: 10.6343 10.6996 10.9182 ... 101879
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective 1.063431028367e+01, best bound 1.063431028367e+01, gap 0.0000%
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:41 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:42 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.1 (linux64) logging started Sun Oct  7 10:39:43 2018
+
+Academic license - for non-commercial use only
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 2394 rows, 859 columns and 8482 nonzeros
+Model has 5925 quadratic objective terms
+Variable types: 688 continuous, 171 integer (171 binary)
+Coefficient statistics:
+  Matrix range     [6e-03, 5e+02]
+  Objective range  [6e-06, 9e+01]
+  QObjective range [2e-06, 6e+03]
+  Bounds range     [1e+00, 2e+01]
+  RHS range        [1e-01, 5e+02]
+Found heuristic solution: objective 94336
+Presolve removed 868 rows and 1 columns
+Presolve time: 0.01s
+Presolved: 1526 rows, 858 columns, 6769 nonzeros
+Presolved model has 5925 quadratic objective terms
+Variable types: 687 continuous, 171 integer (171 binary)
+
+Root relaxation: objective -4.583001e-12, 758 iterations, 0.05 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   -0.00000    0  167 94335.9952   -0.00000   100%     -    0s
+H    0     0                      15.9346253   -0.00000   100%     -    0s
+     0     0    0.00000    0  167   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  168   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  168   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  169   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  167   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  169   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  168   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  169   15.93463    0.00000   100%     -    0s
+     0     0    0.00000    0  169   15.93463    0.00000   100%     -    0s
+H    0     0                      15.6033764    0.00000   100%     -    1s
+     0     2    0.00000    0  169   15.60338    0.00000   100%     -    1s
+H  138    43                      15.1623034    0.00000   100%   254    3s
+H  399    71                      14.8558987    0.00000   100%   116    4s
+H  502    86                      14.6832892    0.00000   100%   101    4s
+H  541    95                      14.6555282    0.00000   100%  95.9    4s
+   584   102   13.76734  100   23   14.65553    0.00000   100%  91.8    5s
+H  617   112                      14.5352456    0.00000   100%  92.1    5s
+H  645   122                      14.3572527    0.00000   100%   104    5s
+H  847   241                      14.1894980    0.00649   100%  96.2    7s
+  1252   431   11.88211   71   72   14.18950    0.02668   100%  87.6   10s
+  1499   571    2.62664   16  130   14.18950    0.09317  99.3%  93.8   15s
+  1709   612     cutoff   47        14.18950    0.44815  96.8%   116   20s
+  2041   617   13.83832   24   19   14.18950    2.75191  80.6%   121   26s
+  2606   576   12.82355   32   55   14.18950    5.54129  60.9%   113   30s
+* 3284   550              23      14.1138445    7.19030  49.1%   105   34s
+* 3326   555              27      14.0907773    7.39934  47.5%   105   34s
+  3368   557   13.64317   33   28   14.09078    7.66291  45.6%   106   35s
+H 3422   550                      13.8231225    7.67063  44.5%   105   35s
+  4175   714 infeasible   24        13.82312    8.51018  38.4%  99.3   40s
+  5224   971 infeasible   33        13.82312    9.30645  32.7%  90.6   45s
+  6171  1202     cutoff   31        13.82312    9.53310  31.0%  85.3   50s
+  7286  1392     cutoff   32        13.82312    9.90657  28.3%  81.1   56s
+  8480  1544 infeasible   29        13.82312   10.21221  26.1%  76.8   61s
+  9133  1571   13.41299   29   52   13.82312   10.46523  24.3%  75.6   66s
+ 10623  1823   13.08732   30   34   13.82312   10.68324  22.7%  69.8   70s
+ 13387  2401   12.94519   31   28   13.82312   10.95427  20.8%  61.4   75s
+ 14882  2634   12.80462   38   44   13.82312   11.17253  19.2%  58.9   80s
+ 16340  2616   12.52271   25   36   13.82312   11.46317  17.1%  57.7   86s
+H17061  2654                      13.7881502   11.61134  15.8%  57.3   89s
+ 17187  2669     cutoff   36        13.78815   11.63401  15.6%  57.1   92s
+ 17831  2560   11.80395   41   76   13.78815   11.75867  14.7%  56.8   96s
+ 18985  2386   13.21369   33   50   13.78815   11.98408  13.1%  56.9  101s
+ 19722  2248     cutoff   43        13.78815   12.14041  12.0%  57.2  105s
+ 21232  2161   13.70899   36   34   13.78815   12.37083  10.3%  56.0  110s
+ 22768  2017     cutoff   51        13.78815   12.58808  8.70%  54.6  115s
+ 24023  1684 infeasible   27        13.78815   12.79371  7.21%  54.2  120s
+*24809  1480              28      13.7797113   12.91410  6.28%  53.8  123s
+ 25049  1324 infeasible   37        13.77971   12.98235  5.79%  53.8  125s
+ 26149   864 infeasible   39        13.77971   13.20932  4.14%  53.4  130s
+*27294   111              36      13.7663200   13.60891  1.14%  53.0  134s
+
+Cutting planes:
+  Cover: 14
+  Implied bound: 32
+  MIR: 2
+  Flow cover: 5
+
+Explored 27448 nodes (1457234 simplex iterations) in 134.88 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 10: 13.7663 13.7797 13.7882 ... 14.6555
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.376631995612e+01, best bound 1.376631995612e+01, gap 0.0000%
