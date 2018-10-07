@@ -1,0 +1,35 @@
+[1] "Estimation results using L2.y as the threshold variable (Hansen, 1996)"
+[1] "Coefficients are shown for two states (f1 < 0.0125721) and (f1 > 0.0125721), respectively"
+$bt.hat
+[1] -2.0730  0.2764 -0.3323  0.6162
+
+$dt.hat
+[1]  4.83747  0.06986  0.40684 -0.82696
+
+$gm.hat
+[1]  1.0000 -0.9146 -0.4960
+
+$objval
+      [,1]
+[1,] 13.36
+
+[1] "Beta est."
+[1] -2.073  0.276 -0.332  0.616
+[1] "Delta est."
+[1]  4.8375  0.0699  0.4068 -0.8270
+[1] "Gamma est."
+[1]  1.000 -0.915 -0.496
+[1] "Estimation results with a vector of possible factors"
+[1] "Coefficients are shown for two states (f %*% gm.hat > 0) and (f %*% gm.hat < 0), respectively"
+[1] "sigmahat (Hansen) -- sigmahat (Est.)"
+[1] 13.9 13.4
+[1] "Testing Linearity"
+[1] "number of bootstrap replications"
+[1] 2
+[1] "Constrained -- Unconstrained"
+[1] 15.58 13.36
+[1] "Test Statistic"
+[1] 28.19
+[1] "p-value"
+[1] 0.5
+Runtime     = 83.38 sec 
