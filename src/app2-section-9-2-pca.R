@@ -342,4 +342,4 @@ cat('Runtime     =', runtime, 'sec','\n')
 sink()  
 
 
-save.image(file='app2-section-9-2-pca.RData')
+save.image(file='../results/app2-section-9-2-pca.RData')

@@ -61,4 +61,4 @@ x.est_R2_t_12   -0.2269     0.1668 -1.3602   0.1745
 sigmahat (Hansen) -- sigmahat (Est.) =  0.0264  --  0.0272 
 Proportion of matches between NBER and Hansen =  0.807 
 Proportion of matches between NBER and our estimates =  0.894 
-Runtime     = 45.3 sec 
+Runtime     = 40.6 sec 

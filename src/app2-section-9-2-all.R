@@ -341,5 +341,5 @@ runtime = time.end - time.start
 cat('Runtime     =', runtime, 'sec','\n')  
 sink()  
 
-save.image(file='app2-section-9-2-all.RData')
+save.image(file='../results/app2-section-9-2-all.RData')
 
