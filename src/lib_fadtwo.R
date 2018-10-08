@@ -1146,7 +1146,7 @@ get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
 
 # This function estimates an impurse-response functions using the local projection method in Jorda (2005)
 #
-#   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + + eps for h=0,1,2,...,
+#   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + eps for h=0,1,2,...,
 #
 #   CALL: 
 #         c_estimate_gm.R 
@@ -1297,9 +1297,8 @@ test.linearity <- function(y,x,f,bt.hat,dt.hat,gm.hat,eta,n_bootstrap,method,L.b
   test.statistic = n*(constrained - sigmahat.est)/sigmahat.est  
   print("Test statistic")
   print(test.statistic)
-  
-  
-  ### Bootstrap ###         
+    
+  ### Bootstrap ###                 
   
   results_bootstrap <- matrix(0, nrow = n_bootstrap, ncol = 1)         
   
