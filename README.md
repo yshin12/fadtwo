@@ -1,6 +1,6 @@
 # fadtwo (FActor-Driven TWO-regime regressions)
 
-Last update: 2018-10-07
+Last update: 2018-10-08
 
 #### _src_ folder contains the following source files:
 * lib_fadtwo.R: the collection of all R-functions required for estimating the model 
@@ -17,4 +17,3 @@ Last update: 2018-10-07
 #### _results_ folder contains the results of all codes in the _src_ folder
 
 #### _data_ folder contains the data sets required for the applications in Section 9
-
