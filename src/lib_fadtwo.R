@@ -265,11 +265,6 @@ fadtwo_selection <- function(y, x, f1, f2, method, L.bt=NULL, U.bt=NULL, L.dt=NU
     bt.pre = ap.hat.step1[c(1:d.x)]
     dt.pre = ap.hat.step1[-c(1:d.x)]
     
-    # Test to compare it with joint estimation codes
-    # bt.pre=c(0.1137517, 0.1308253, 0.09609715, -0.02124596, -0.009057051, 0.01754676, 1.407947, -0.9421353, 0.7915665, -0.3855972, 0.4666518, -0.7873762, 0.3730487, 0.02099868)
-    # dt.pre=c(-0.09237944, -0.112688, -0.1321168, 0.03301762, -0.03461472, 0.02713847, -0.124312, 0.6114814, -0.5539258, 0.1700254, 0.2375884, 0.3583261, -0.9860771, 0.3360492)
-
-
     for (cnt.it in (1:max.iter)){
       # Estimate gm.hat by MIO and Update ap.hat
       step2_1.out = estimate_gm_selection(y=y, x=x, f1=f1, f2=f2, bt=bt.pre, dt=dt.pre, L.gm1=L.gm1, U.gm1=U.gm1, L.gm2=L.gm2, 
@@ -1151,7 +1146,7 @@ get_objval = function(y,x,f,bt,dt,gm, eta=1e-6) {
 
 # This function estimates an impurse-response functions using the local projection method in Jorda (2005)
 #
-#   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + + eps for h=0,1,2,...,
+#   y_(t+h) = shock_{t-1}*alpha + x_{t-1}*beta + eps for h=0,1,2,...,
 #
 #   CALL: 
 #         c_estimate_gm.R 
@@ -1302,9 +1297,8 @@ test.linearity <- function(y,x,f,bt.hat,dt.hat,gm.hat,eta,n_bootstrap,method,L.b
   test.statistic = n*(constrained - sigmahat.est)/sigmahat.est  
   print("Test statistic")
   print(test.statistic)
-  
-  
-  ### Bootstrap ###         
+    
+  ### Bootstrap ###                 
   
   results_bootstrap <- matrix(0, nrow = n_bootstrap, ncol = 1)         
   
